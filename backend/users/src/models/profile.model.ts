@@ -1,9 +1,10 @@
 import { Table, Column, DataType, Model, ForeignKey, BelongsTo } from 'sequelize-typescript';
 import { User } from './user.model';
+import { TOKENS } from '../utils/tokens.utils';
 
 @Table({
-  tableName: 'profiles',
-  modelName: 'Profile',
+  tableName: TOKENS.sql.table.profile,
+  modelName: TOKENS.sql.model.profile,
   timestamps: true,
   underscored: true,
 })

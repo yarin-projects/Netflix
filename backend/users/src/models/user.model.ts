@@ -1,10 +1,11 @@
 import { Table, Column, DataType, Model, HasMany } from 'sequelize-typescript';
 import { Profile } from './profile.model';
 import { Payment } from './payment.model';
+import { TOKENS } from '../utils/tokens.utils';
 
 @Table({
-  tableName: 'users',
-  modelName: 'User',
+  tableName: TOKENS.sql.table.user,
+  modelName: TOKENS.sql.model.user,
   timestamps: true,
   underscored: true,
 })

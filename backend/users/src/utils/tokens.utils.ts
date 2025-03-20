@@ -1,5 +1,6 @@
 import { errors } from './tokens/errors.tokens';
 import { messages } from './tokens/messages.tokens';
+import { sql } from './tokens/sql.tokens';
 
 export const TOKENS = {
   corsOrigin: [
@@ -9,6 +10,7 @@ export const TOKENS = {
     'http://localhost:3004',
   ],
   port: 3001,
+  sql,
   errors,
   messages,
 };
