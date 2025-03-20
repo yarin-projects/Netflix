@@ -3,6 +3,7 @@ import { TOKENS } from '../utils/tokens.utils';
 import { User } from '../models/user.model';
 import { Profile } from '../models/profile.model';
 import { Payment } from '../models/payment.model';
+import mysql from 'mysql2/promise';
 
 export class MySqlConnection {
   private static instance: Sequelize | null = null;
@@ -21,6 +22,7 @@ export class MySqlConnection {
 }
 
 const mySqlConnection = async (name: string, user: string, password: string, host: string) => {
+  await ensureDatabaseExists(host, user, password, name);
   const sequelize = new Sequelize({
     database: name,
     username: user,
@@ -38,4 +40,15 @@ const mySqlConnection = async (name: string, user: string, password: string, hos
   } catch (error) {
     throw new Error(TOKENS.errors.mySqlConnectionFailed + error);
   }
+};
+
+const ensureDatabaseExists = async (
+  host: string,
+  user: string,
+  password: string,
+  dbName: string
+) => {
+  const connection = await mysql.createConnection({ host, user, password });
+  await connection.query(`CREATE DATABASE IF NOT EXISTS \`${dbName}\`;`);
+  await connection.end();
 };
