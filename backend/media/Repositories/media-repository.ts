@@ -1,7 +1,7 @@
 import {MediaRepositoryInterface} from '../Interfaces/media-repository-interface';
 import {config} from 'dotenv';
 import axios from 'axios';
-import { ITV } from '../Interfaces/Model-Interfaces/TV/tv-series-interface';
+import { ITVSeries } from '../Interfaces/Model-Interfaces/TV/tv-series-interface';
 import { IMovie } from '../Interfaces/Model-Interfaces/MOVIE/movie-interface';
 import { IFullTVSeries } from '../Interfaces/Model-Interfaces/TV/full-tv-series-interface';
 import { IFullMovie } from '../Interfaces/Model-Interfaces/MOVIE/full-movie-interface';
@@ -18,7 +18,7 @@ export class MediaRepository implements MediaRepositoryInterface {
     full_movie = process.env.FULL_MOVIE;
     search = process.env.SEARCH;
 
-    async GetAllMovies(page?: number): Promise<IMovie | null> {
+    async GetAllMovies(page?: number): Promise<IMovie[] | null> {
         const response = await axios.get(`${this.movies}?api_key=${this.apikey}`);
         if (response) {
         return response.data.results;
@@ -26,8 +26,8 @@ export class MediaRepository implements MediaRepositoryInterface {
         else return null;
     }
 
-    async GetAllTVs(page?: number): Promise<ITV | null> {
-        const response = await axios.get(`${this.all}?api_key=${this.apikey}`);
+    async GetAllTVs(page?: number): Promise<ITVSeries[] | null> {
+        const response = await axios.get(`${this.tvs}?api_key=${this.apikey}`);
         if (response) {
         return response.data.results;
         }
@@ -35,7 +35,7 @@ export class MediaRepository implements MediaRepositoryInterface {
     }
 
     async GetAllMedia(page?: number): Promise<any> {
-        const response = await axios.get(`${this.tvs}?api_key=${this.apikey}`);
+        const response = await axios.get(`${this.all}?api_key=${this.apikey}`);
         if (response) {
             const results = response.data.results;
             results.filter((media: any) => 

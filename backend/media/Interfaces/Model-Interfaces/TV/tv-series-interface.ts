@@ -1,4 +1,4 @@
-export interface ITV {
+export interface ITVSeries {
     backdrop_path: string,
     id: number,
     name: string,
