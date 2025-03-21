@@ -14,6 +14,8 @@ export const TOKENS = {
   ],
   port: 3001,
   bcryptRounds: 10,
+  jwtExpiry: '3h',
+  token: 'Token',
   sql,
   httpStatus,
   injections,
