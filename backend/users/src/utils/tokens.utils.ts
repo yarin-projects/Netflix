@@ -1,5 +1,8 @@
 import { errors } from './tokens/errors.tokens';
+import { httpStatus } from './tokens/http-status-codes.tokens';
+import { injections } from './tokens/injections.tokens';
 import { messages } from './tokens/messages.tokens';
+import { routes } from './tokens/routes.tokens';
 import { sql } from './tokens/sql.tokens';
 
 export const TOKENS = {
@@ -11,6 +14,9 @@ export const TOKENS = {
   ],
   port: 3001,
   sql,
+  httpStatus,
+  injections,
+  routes,
   errors,
   messages,
 };
