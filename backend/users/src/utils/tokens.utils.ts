@@ -13,6 +13,7 @@ export const TOKENS = {
     'http://localhost:3004',
   ],
   port: 3001,
+  bcryptRounds: 10,
   sql,
   httpStatus,
   injections,
