@@ -4,6 +4,7 @@ import { injections } from './tokens/injections.tokens';
 import { messages } from './tokens/messages.tokens';
 import { routes } from './tokens/routes.tokens';
 import { sql } from './tokens/sql.tokens';
+import { validations } from './tokens/validations.tokens';
 
 export const TOKENS = {
   corsOrigin: [
@@ -20,6 +21,7 @@ export const TOKENS = {
   httpStatus,
   injections,
   routes,
+  validations,
   errors,
   messages,
 };
