@@ -2,6 +2,7 @@ import cookieParser from 'cookie-parser';
 import express, { Application, urlencoded } from 'express';
 import cors from 'cors';
 import { TOKENS } from './utils/tokens.utils';
+import { userRouter } from './routers/user.router';
 
 const app: Application = express();
 
@@ -14,5 +15,7 @@ app.use(
   })
 );
 app.use(cookieParser());
+
+app.use(TOKENS.routes.usersBasePath, userRouter);
 
 export { app };
