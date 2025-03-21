@@ -1,3 +1,4 @@
+/// <reference path="./types/global/express.d.ts" />
 import { TOKENS } from './utils/tokens.utils';
 import { app } from './app';
 import { dbConnection } from './config/db.config';
