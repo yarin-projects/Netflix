@@ -1,4 +1,4 @@
-import {MediaRepositoryInterface} from '../Interfaces/media-repository-interface';
+import {IMediaRepository} from '../Interfaces/media-repository-interface';
 import {config} from 'dotenv';
 import axios from 'axios';
 import { ITVSeries } from '../Interfaces/Model-Interfaces/TV/tv-series-interface';
@@ -7,7 +7,7 @@ import { IFullTVSeries } from '../Interfaces/Model-Interfaces/TV/full-tv-series-
 import { IFullMovie } from '../Interfaces/Model-Interfaces/MOVIE/full-movie-interface';
 config();
 
-export class MediaRepository implements MediaRepositoryInterface {
+export class MediaRepository implements IMediaRepository {
     //set variables from .env file
     apikey = process.env.API_KEY;
     popular = process.env.POPULAR;

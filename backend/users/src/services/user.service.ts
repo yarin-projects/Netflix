@@ -2,7 +2,7 @@ import { inject, injectable } from 'inversify';
 import { LoginRequestDto } from '../dtos/login-request.dto';
 import { SignUpRequestDto } from '../dtos/sign-up-request.dto';
 import { IUserService } from '../interfaces/user-service.interface';
-import { IUser } from '../interfaces/user.interface';
+import { IUser } from '../interfaces/user-interface';
 import { TOKENS } from '../utils/tokens.utils';
 import { IUserRepository } from '../interfaces/user-repository.interface';
 

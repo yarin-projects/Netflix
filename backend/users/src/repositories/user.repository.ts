@@ -1,7 +1,7 @@
 import { injectable } from 'inversify';
 import { SignUpRequestDto } from '../dtos/sign-up-request.dto';
 import { IUserRepository } from '../interfaces/user-repository.interface';
-import { IUser } from '../interfaces/user.interface';
+import { IUser } from '../interfaces/user-interface';
 import { User } from '../models/user.model';
 
 @injectable()

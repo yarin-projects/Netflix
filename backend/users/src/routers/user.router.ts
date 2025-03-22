@@ -1,6 +1,6 @@
 import { Request, Response, Router } from 'express';
 import { container } from '../config/inversify.config';
-import { UserController } from '../controllers/user.controller';
+import { UserController } from '../controllers/user-controller';
 import { TOKENS } from '../utils/tokens.utils';
 import { validate } from '../middlewares/validate.middleware';
 import { signUpSchema } from '../schemas/auth.schema';

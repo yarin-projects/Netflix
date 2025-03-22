@@ -1,6 +1,6 @@
 import { LoginRequestDto } from '../dtos/login-request.dto';
 import { SignUpRequestDto } from '../dtos/sign-up-request.dto';
-import { IUser } from './user.interface';
+import { IUser } from './user-interface';
 
 export interface IUserService {
   signUp(data: SignUpRequestDto): Promise<IUser | null>;
