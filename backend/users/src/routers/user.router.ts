@@ -3,13 +3,13 @@ import { container } from '../config/inversify.config';
 import { UserController } from '../controllers/user.controller';
 import { TOKENS } from '../utils/tokens.utils';
 import { validate } from '../middlewares/validate.middleware';
-import { signUpSchema } from '../schemas/auth.schema';
+import { authSchema } from '../schemas/auth.schema';
 
 const userRouter: Router = Router();
 
 const userController = container.get<UserController>(TOKENS.injections.userController);
 
-userRouter.post(TOKENS.routes.signUp, validate(signUpSchema), (req: Request, res: Response) => {
+userRouter.post(TOKENS.routes.signUp, validate(authSchema), (req: Request, res: Response) => {
   userController.singUp(req, res);
 });
 

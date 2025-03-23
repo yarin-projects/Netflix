@@ -1,12 +1,12 @@
 import { injectable } from 'inversify';
-import { SignUpRequestDto } from '../dtos/sign-up-request.dto';
 import { IUserRepository } from '../interfaces/user-repository.interface';
 import { IUser } from '../interfaces/user.interface';
 import { User } from '../models/user.model';
+import { AuthRequestDto } from '../dtos/auth-request.dto';
 
 @injectable()
 export class UserRepository implements IUserRepository {
-  async create(data: SignUpRequestDto): Promise<IUser | null> {
+  async create(data: AuthRequestDto): Promise<IUser | null> {
     const newUser = await User.create({ data });
     return newUser;
   }

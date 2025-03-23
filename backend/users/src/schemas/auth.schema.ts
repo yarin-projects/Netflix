@@ -1,7 +1,7 @@
 import { z } from 'zod';
 import { TOKENS } from '../utils/tokens.utils';
 
-export const signUpSchema = z.object({
+export const authSchema = z.object({
   email: z.string().email(TOKENS.validations.email.message),
   password: z
     .string()
@@ -9,4 +9,3 @@ export const signUpSchema = z.object({
     .max(TOKENS.validations.password.max.value, TOKENS.validations.password.max.message),
 });
 
-export type signUpFormData = z.infer<typeof signUpSchema>;

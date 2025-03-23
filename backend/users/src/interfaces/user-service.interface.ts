@@ -1,10 +1,9 @@
-import { LoginRequestDto } from '../dtos/login-request.dto';
-import { SignUpRequestDto } from '../dtos/sign-up-request.dto';
+import { AuthRequestDto } from '../dtos/auth-request.dto';
 import { IUser } from './user.interface';
 
 export interface IUserService {
-  signUp(data: SignUpRequestDto): Promise<IUser | null>;
-  login(data: LoginRequestDto): Promise<IUser | null>;
+  signUp(data: AuthRequestDto): Promise<IUser | null>;
+  login(data: AuthRequestDto): Promise<IUser | null>;
   getUserById(id: string): Promise<IUser | null>;
   getUserByEmail(email: string): Promise<IUser | null>;
 }
