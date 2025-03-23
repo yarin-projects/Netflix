@@ -10,10 +10,6 @@ export class UserRepository implements IUserRepository {
     const newUser = await User.create({ data });
     return newUser;
   }
-  async findById(id: string): Promise<IUser | null> {
-    const user = await User.findByPk(id);
-    return user;
-  }
   async findByEmail(email: string): Promise<IUser | null> {
     const user = await User.findOne({ where: { email } });
     return user;

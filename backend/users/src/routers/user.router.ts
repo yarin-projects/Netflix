@@ -13,7 +13,7 @@ userRouter.post(TOKENS.routes.signUp, validate(authSchema), (req: Request, res: 
   userController.singUp(req, res);
 });
 
-userRouter.post(TOKENS.routes.login, (req: Request, res: Response) => {
+userRouter.post(TOKENS.routes.login, validate(authSchema), (req: Request, res: Response) => {
   userController.login(req, res);
 });
 
