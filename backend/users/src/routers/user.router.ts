@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express';
-import { container } from '../config/inversify.config';
+import { container } from '../configs/inversify.config';
 import { UserController } from '../controllers/user.controller';
 import { TOKENS } from '../utils/tokens.utils';
 import { validate } from '../middlewares/validate.middleware';

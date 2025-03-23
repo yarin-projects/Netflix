@@ -1,7 +1,7 @@
 /// <reference path="./types/global/express.d.ts" />
 import { TOKENS } from './utils/tokens.utils';
 import { app } from './app';
-import { dbConnection } from './config/db.config';
+import { dbConnection } from './configs/db.config';
 
 const PORT = process.env.PORT || TOKENS.port;
 
