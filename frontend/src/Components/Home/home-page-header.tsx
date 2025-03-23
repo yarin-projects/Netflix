@@ -1,8 +1,8 @@
 import './home-page-header.css'
-import { useNavigate } from 'react-router-dom'
+//import { useNavigate } from 'react-router-dom'
 
 const HomePageHeader = () => {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   //need to think how to implement the tailwind here without just copy all the figma (check Styles/home-page-header.css). 
   //I started to implement the component but I think it's better to discuss it first (Matan)
   return (
