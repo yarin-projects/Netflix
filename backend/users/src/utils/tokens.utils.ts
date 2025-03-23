@@ -4,6 +4,7 @@ import { injections } from './tokens/injections.tokens';
 import { messages } from './tokens/messages.tokens';
 import { routes } from './tokens/routes.tokens';
 import { sql } from './tokens/sql.tokens';
+import { tests } from './tokens/tests.tokens';
 import { validations } from './tokens/validations.tokens';
 
 export const TOKENS = {
@@ -22,6 +23,7 @@ export const TOKENS = {
   injections,
   routes,
   validations,
+  tests,
   errors,
   messages,
 };
