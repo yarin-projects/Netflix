@@ -2,6 +2,8 @@
 import { TOKENS } from './utils/tokens.utils';
 import { app } from './app';
 import { dbConnection } from './configs/db.config';
+import { httpsOptions } from './configs/https.config';
+import https from 'https';
 
 const PORT = process.env.PORT || TOKENS.port;
 
@@ -10,7 +12,7 @@ const start = async () => {
     throw new Error(TOKENS.errors.jwtKeyMissing);
   }
   await dbConnection();
-  app.listen(PORT, () => {
+  https.createServer(httpsOptions, app).listen(PORT, () => {
     console.log(TOKENS.messages.serverRunning, PORT);
   });
 };
