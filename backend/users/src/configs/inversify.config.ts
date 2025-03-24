@@ -1,13 +1,10 @@
 import { Container } from 'inversify';
-import { config } from 'dotenv';
 import { UserController } from '../controllers/user.controller';
 import { TOKENS } from '../utils/tokens.utils';
 import { IUserService } from '../interfaces/user-service.interface';
 import { UserService } from '../services/user.service';
 import { IUserRepository } from '../interfaces/user-repository.interface';
 import { UserRepository } from '../repositories/user.repository';
-
-config();
 
 const container = new Container();
 

@@ -11,7 +11,8 @@ import { TOKENS } from '../utils/tokens.utils';
 })
 export class User extends Model {
   @Column({
-    type: DataType.UUID,
+    type: DataType.CHAR(36),
+    defaultValue: DataType.UUIDV4,
     primaryKey: true,
     allowNull: false,
     unique: true,

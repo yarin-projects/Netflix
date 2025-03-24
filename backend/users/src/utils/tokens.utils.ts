@@ -8,7 +8,7 @@ import { tests } from './tokens/tests.tokens';
 import { validations } from './tokens/validations.tokens';
 
 export const TOKENS = {
-  corsOrigin: [
+  allowedOrigins: [
     'http://localhost:3000',
     'http://localhost:3002',
     'http://localhost:3003',

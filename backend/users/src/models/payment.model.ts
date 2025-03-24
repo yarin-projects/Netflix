@@ -10,7 +10,7 @@ import { TOKENS } from '../utils/tokens.utils';
 })
 export class Payment extends Model {
   @Column({
-    type: DataType.UUID,
+    type: DataType.CHAR(36),
     primaryKey: true,
     allowNull: false,
     unique: true,
@@ -19,7 +19,7 @@ export class Payment extends Model {
 
   @ForeignKey(() => User)
   @Column({
-    type: DataType.UUID,
+    type: DataType.CHAR(36),
     allowNull: false,
   })
   user_id!: string;

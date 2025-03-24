@@ -11,7 +11,7 @@ app.use(urlencoded({ extended: true }));
 app.use(
   cors({
     credentials: true,
-    origin: TOKENS.corsOrigin,
+    origin: TOKENS.allowedOrigins,
   })
 );
 app.use(cookieParser());

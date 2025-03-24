@@ -7,7 +7,7 @@ import { AuthRequestDto } from '../dtos/auth-request.dto';
 @injectable()
 export class UserRepository implements IUserRepository {
   async create(data: AuthRequestDto): Promise<IUser | null> {
-    const newUser = await User.create({ data });
+    const newUser = await User.create({ ...data });
     return newUser;
   }
   async findByEmail(email: string): Promise<IUser | null> {
