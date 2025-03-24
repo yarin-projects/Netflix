@@ -21,7 +21,7 @@ export const tests = {
         title: 'Sign-Up',
         cases: {
           validSignUp: 'Should return status code 201 if signed up successfully',
-          invalidEmail: "Should return status code 400 if email isn't probided",
+          invalidEmail: 'Should return status code 400 if email is invalid',
         },
       },
       login: {
