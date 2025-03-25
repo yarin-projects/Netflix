@@ -10,7 +10,7 @@ export const requestLogger = (req: Request, res: Response, next: NextFunction) =
   let responseBody: ApiResponse = {};
 
   const originalJson = res.json.bind(res);
-  res.json = (body: any) => {
+  res.json = (body: ApiResponse) => {
     responseBody = body;
     return originalJson(body);
   };
@@ -33,9 +33,6 @@ export const requestLogger = (req: Request, res: Response, next: NextFunction) =
 };
 
 const extractResponseInfo = (responseBody: ApiResponse) => {
-  if (!responseBody || typeof responseBody !== 'object') {
-    return { message: responseBody, error: undefined };
-  }
   const { message, error, ...additionalData } = responseBody;
   const hasAdditionalData = Object.keys(additionalData).length > 0;
   const additionalDataString = hasAdditionalData
