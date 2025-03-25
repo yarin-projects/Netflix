@@ -5,6 +5,7 @@ import { IUserRepository } from '../interfaces/user-repository.interface';
 import { AuthRequestDto } from '../dtos/auth-request.dto';
 import { comparePassword, hashPassword } from '../utils/bcrypt.utils';
 import { generateToken } from '../utils/jwt.utils';
+import { logger } from '../configs/logger.config';
 
 @injectable()
 export class UserService implements IUserService {
@@ -31,12 +32,14 @@ export class UserService implements IUserService {
 
     const existingUser = await this.userRepository.findByEmail(email);
     if (!existingUser) {
-      throw new Error(TOKENS.errors.userNotFound);
+      logger.error(TOKENS.errors.userNotFound + email);
+      throw new Error(TOKENS.errors.invalidCredentials);
     }
 
     const isPasswordValid = await comparePassword(password, existingUser.password);
     if (!isPasswordValid) {
-      throw new Error(TOKENS.errors.invalidPassword);
+      logger.error(TOKENS.errors.invalidPassword + email);
+      throw new Error(TOKENS.errors.invalidCredentials);
     }
 
     return generateToken({ email });

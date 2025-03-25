@@ -7,7 +7,7 @@ import { sql } from './tokens/sql.tokens';
 import { tests } from './tokens/tests.tokens';
 import { validations } from './tokens/validations.tokens';
 
-export const TOKENS = {
+export const TOKENS = Object.freeze({
   allowedOrigins: [
     'http://localhost:3000',
     'http://localhost:3002',
@@ -26,4 +26,4 @@ export const TOKENS = {
   tests,
   errors,
   messages,
-};
+});
