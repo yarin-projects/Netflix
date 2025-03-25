@@ -21,14 +21,11 @@ export const requestLogger = (req: Request, res: Response, next: NextFunction) =
 
     const { message, error, additionalDataString } = extractResponseInfo(responseBody);
 
+    const logMessage = `Outgoing Response: [${res.statusCode}] ${req.url} (${durationMs} ms) -`;
     if (res.statusCode >= 400) {
-      logger.error(
-        `Outgoing Response: [${res.statusCode}] ${req.url} (${durationMs} ms) - Error: ${error}${additionalDataString}`
-      );
+      logger.error(`${logMessage} Error: ${error}${additionalDataString}`);
     } else {
-      logger.info(
-        `Outgoing Response: [${res.statusCode}] ${req.url} (${durationMs} ms) - Message: ${message}${additionalDataString}`
-      );
+      logger.info(`${logMessage} Message: ${message}${additionalDataString}`);
     }
   });
 
