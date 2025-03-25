@@ -8,11 +8,11 @@ import { tests } from './tokens/tests.token';
 export const TOKENS = {
   allowedOrigins: [
     'http://localhost:3000',
+    'https://localhost:3001',
     'http://localhost:3002',
     'http://localhost:3003',
-    'http://localhost:3004',
   ],
-  port: 3001,
+  port: 3004,
   token: 'Token',
   httpStatus,
   injections,
