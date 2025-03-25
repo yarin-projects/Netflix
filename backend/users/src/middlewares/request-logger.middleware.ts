@@ -19,13 +19,13 @@ export const requestLogger = (req: Request, res: Response, next: NextFunction) =
     const end = hrtime.bigint();
     const durationMs = (Number(end - start) / 1000000).toFixed(2);
 
-    const { message, error, additionalDataString } = extractResponseInfo(responseBody);
+    const { message, error } = extractResponseInfo(responseBody);
 
     const logMessage = `Outgoing Response: [${res.statusCode}] ${req.url} (${durationMs} ms) -`;
     if (res.statusCode >= 400) {
-      logger.error(`${logMessage} Error: ${error}${additionalDataString}`);
+      logger.error(`${logMessage} Error: ${error}`);
     } else {
-      logger.info(`${logMessage} Message: ${message}${additionalDataString}`);
+      logger.info(`${logMessage} Message: ${message}`);
     }
   });
 
@@ -34,7 +34,7 @@ export const requestLogger = (req: Request, res: Response, next: NextFunction) =
 
 const extractResponseInfo = (responseBody: ApiResponse) => {
   if (!responseBody || typeof responseBody !== 'object') {
-    return { message: responseBody, error: undefined, additionalDataString: '' };
+    return { message: responseBody, error: undefined };
   }
   const { message, error, ...additionalData } = responseBody;
   const hasAdditionalData = Object.keys(additionalData).length > 0;
@@ -43,8 +43,7 @@ const extractResponseInfo = (responseBody: ApiResponse) => {
     : '';
 
   return {
-    message,
-    error,
-    additionalDataString,
+    message: message + additionalDataString,
+    error: error + additionalDataString,
   };
 };
