@@ -1,6 +1,6 @@
 import { inject, injectable } from 'inversify';
 import { IMediaService } from '../Interfaces/media-service-interface';
-import { TOKENS } from '../utils/tokens.utils';
+import { TOKENS } from "../media-utils/tokens.utils";
 import { Request, Response } from 'express';
 import { IFullMovie } from '../Interfaces/Model-Interfaces/MOVIE/full-movie-interface';
 import { IFullTVSeries } from '../Interfaces/Model-Interfaces/TV/full-tv-series-interface';
@@ -12,7 +12,7 @@ export class MediaController {
   constructor(@inject(TOKENS.injections.IMediaService) private mediaService: IMediaService) {} 
   //idk why this is an exception - the @ decorator is not recognized. 
     GetAllMovies(req: Request, res: Response): Promise<IMovie[] | null> {
-        throw new Error('Method not implemented.'); 
+        throw new Error('Method not implemented.');
     }
     GetAllTVs(req: Request, res: Response): Promise<ITVSeries[] | null> {
         throw new Error('Method not implemented.');

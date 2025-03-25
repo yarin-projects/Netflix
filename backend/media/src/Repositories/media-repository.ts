@@ -43,7 +43,7 @@ export class MediaRepository implements IMediaRepository {
             return results;
         }
         else return null;
-        }
+    }
 
     async Search(query: string): Promise<any> {
         const response = await axios.get(`${this.search}?api_key=${this.apikey}`);

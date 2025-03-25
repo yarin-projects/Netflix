@@ -4,11 +4,11 @@ import { IFullMovie } from "../Interfaces/Model-Interfaces/MOVIE/full-movie-inte
 import { IFullTVSeries } from "../Interfaces/Model-Interfaces/TV/full-tv-series-interface";
 import { inject, injectable } from 'inversify';
 import { IMediaService } from "../Interfaces/media-service-interface";
-import { TOKENS } from "../utils/tokens.utils";
+import { TOKENS } from "../media-utils/tokens.utils";
 import { IMediaRepository } from "../Interfaces/media-repository-interface";
 
 @injectable()
-class MediaService implements IMediaService {
+export class MediaService implements IMediaService {
     constructor(@inject(TOKENS.injections.IMediaRepository) private mediaRepository: IMediaRepository) {}
     async GetAllMovies(page?: number): Promise<IMovie[] | null> {
         return this.mediaRepository.GetAllMovies(page);
