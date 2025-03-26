@@ -1,16 +1,17 @@
 import { NextFunction, Request, Response } from 'express';
 import { logger } from '../configs/logger.config';
 import { hrtime } from 'node:process';
-import { ApiResponse } from '../interfaces/api-response.interface';
+import { IApiResponse } from '../interfaces/api-response.interface';
+import { TOKENS } from '../utils/tokens.utils';
 
 export const requestLogger = (req: Request, res: Response, next: NextFunction) => {
   const start = hrtime.bigint();
-  logger.info(`Incoming Request: [${req.method}] ${req.url}`);
+  logger.info(TOKENS.logger.requestMiddleware.logRequest(req.method, req.url));
 
-  let responseBody: ApiResponse = {};
+  let responseBody: IApiResponse = {};
 
   const originalJson = res.json.bind(res);
-  res.json = (body: ApiResponse) => {
+  res.json = (body: IApiResponse) => {
     responseBody = body;
     return originalJson(body);
   };
@@ -20,24 +21,28 @@ export const requestLogger = (req: Request, res: Response, next: NextFunction) =
     const durationMs = (Number(end - start) / 1000000).toFixed(2);
 
     const { message, error } = extractResponseInfo(responseBody);
+    const statusCode = res.statusCode.toString();
 
-    const logMessage = `Outgoing Response: [${res.statusCode}] ${req.url} (${durationMs} ms) -`;
     if (res.statusCode >= 400) {
-      logger.error(`${logMessage} Error: ${error}`);
+      logger.error(
+        TOKENS.logger.requestMiddleware.logErrorResponse(statusCode, req.url, durationMs, error)
+      );
     } else {
-      logger.info(`${logMessage} Message: ${message}`);
+      logger.info(
+        TOKENS.logger.requestMiddleware.logMessageResponse(statusCode, req.url, durationMs, message)
+      );
     }
   });
 
   next();
 };
 
-const extractResponseInfo = (responseBody: ApiResponse) => {
+const extractResponseInfo = (responseBody: IApiResponse) => {
   const { message, error, ...additionalData } = responseBody;
   const hasAdditionalData = Object.keys(additionalData).length > 0;
   const additionalDataString = hasAdditionalData
-    ? ` - Additional Data: ${JSON.stringify(additionalData)}`
-    : '';
+    ? TOKENS.logger.requestMiddleware.additionalData + JSON.stringify(additionalData)
+    : TOKENS.emptyString;
 
   return {
     message: message + additionalDataString,
