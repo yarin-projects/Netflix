@@ -3,10 +3,11 @@ import { SubscriptionPlan } from '../enums/subscription-plan.enum';
 import { Currency } from '../enums/currency.enum';
 import { PaymentMethod } from '../enums/payment-method.enum';
 import { User } from './user.model';
+import { TOKENS } from '../utils/tokens.utils';
 
 @Table({
-  tableName: 'payments',
-  modelName: 'Payment',
+  tableName: TOKENS.sql.table.payment,
+  modelName: TOKENS.sql.model.payment,
   timestamps: true,
   underscored: true,
 })

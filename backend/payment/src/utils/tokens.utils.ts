@@ -9,7 +9,7 @@ import { sql } from './tokens/sql.tokens';
 import { tests } from './tokens/tests.tokens';
 import { validations } from './tokens/validations.tokens';
 
-const port = process.env.PORT || 3003;
+const port = Number(process.env.PORT) || 3003;
 
 export const TOKENS = Object.freeze({
   port,
