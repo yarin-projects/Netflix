@@ -4,9 +4,9 @@ import { IFullTVSeries } from "./Model-Interfaces/TV/full-tv-series-interface"
 import { ITVSeries } from "./Model-Interfaces/TV/tv-series-interface"
 
 export interface IMediaService {
-    GetAllMovies(page?: number): Promise<IMovie[] | null>
-    GetAllTVs(page?: number): Promise<ITVSeries[] | null>
-    GetAllMedia(page?: number): Promise<any>
+    GetAllMovies(): Promise<IMovie[] | null>
+    GetAllTVs(): Promise<ITVSeries[] | null>
+    GetAllMedia(): Promise<any>
     Search(query: string): Promise<any>
     GetMovieById(id: number): Promise<IFullMovie | null>
     GetTVById(id: number): Promise<IFullTVSeries | null>

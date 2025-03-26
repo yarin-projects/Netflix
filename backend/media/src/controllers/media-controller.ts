@@ -6,27 +6,86 @@ import { IFullMovie } from '../Interfaces/Model-Interfaces/MOVIE/full-movie-inte
 import { IFullTVSeries } from '../Interfaces/Model-Interfaces/TV/full-tv-series-interface';
 import { ITVSeries } from '../Interfaces/Model-Interfaces/TV/tv-series-interface';
 import { IMovie } from '../Interfaces/Model-Interfaces/MOVIE/movie-interface';
+import { handleError } from '../media-utils/error-handler.utils';
 
 @injectable()
 export class MediaController {
   constructor(@inject(TOKENS.injections.IMediaService) private mediaService: IMediaService) {} 
-  //idk why this is an exception - the @ decorator is not recognized. 
-    GetAllMovies(req: Request, res: Response): Promise<IMovie[] | null> {
-        throw new Error('Method not implemented.');
+
+    async GetAllMovies(req: Request, res: Response): Promise<IMovie[] | null> {
+        try {
+            const movies = await this.mediaService.GetAllMovies();
+            if (!movies) {
+                return null;
+            }
+            return movies;
+        } catch (error) {
+            handleError(res,error);
+            return null;
+        }
     }
-    GetAllTVs(req: Request, res: Response): Promise<ITVSeries[] | null> {
-        throw new Error('Method not implemented.');
+
+    async GetAllTVs(req: Request, res: Response): Promise<ITVSeries[] | null> {
+        try {
+            const tvs = await this.mediaService.GetAllTVs();
+            if (!tvs) {
+                return null;
+            }
+            return tvs;
+        } catch (error) {
+            handleError(res,error);
+            return null;
+        }
     }
-    GetAllMedia(req: Request, res: Response): Promise<any> {
-        throw new Error('Method not implemented.');
+    async GetAllMedia(req: Request, res: Response): Promise<any> {
+        try {
+            const allMedia = await this.mediaService.GetAllMedia();
+            if (!allMedia) {
+                return null;
+            }
+            return allMedia;
+        } catch (error) {
+            handleError(res,error);
+            return null;
+        }
     }
-    Search(req: Request, res: Response): Promise<any> {
-        throw new Error('Method not implemented.');
+
+    async Search(req: Request, res: Response): Promise<any> {
+        try {
+            const searchMedia = await this.mediaService.Search(req.query.q as string); //idk about it 
+            if (!searchMedia) {
+                return null;
+            }
+            return searchMedia;
+        } catch (error) {
+            handleError(res,error);
+            return null;
+        }
     }
-    GetMovieById(req: Request, res: Response): Promise<IFullMovie | null> {
-        throw new Error('Method not implemented.');
+
+    async GetMovieById(req: Request, res: Response): Promise<IFullMovie | null> {
+        try {
+            const movie = await this.mediaService.GetMovieById(req.body.id); //idk about it 
+            if (!movie) {
+                return null;
+            }
+            return movie;
+        } catch (error) {
+            handleError(res,error);
+            return null;
+        }
     }
-    GetTVById(req: Request, res: Response): Promise<IFullTVSeries | null> {
-        throw new Error('Method not implemented.');
+
+    async GetTVById(req: Request, res: Response): Promise<IFullTVSeries | null> {
+        try {
+            const tv = await this.mediaService.GetTVById(req.body.id); //idk about it 
+            if (!tv) {
+                return null;
+            }
+            return tv;
+        } catch (error) {
+            handleError(res,error);
+            return null;
+        }
     }
 }
