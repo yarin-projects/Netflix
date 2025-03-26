@@ -4,13 +4,15 @@ import { TOKENS } from '../utils/tokens.utils';
 import { IUserRepository } from '../interfaces/user-repository.interface';
 import { AuthRequestDto } from '../dtos/auth-request.dto';
 import { comparePassword, hashPassword } from '../utils/bcrypt.utils';
-import { generateToken } from '../utils/jwt.utils';
 import { logger } from '../configs/logger.config';
+import { generateAccessToken, generateRefreshToken } from '../utils/jwt.utils';
+import { IJwtTokens } from '../interfaces/jwt-tokens.interface';
+import { IUser } from '../interfaces/user.interface';
 
 @injectable()
 export class UserService implements IUserService {
   constructor(@inject(TOKENS.injections.iUserRepository) private userRepository: IUserRepository) {}
-  async signUp(data: AuthRequestDto): Promise<string> {
+  async signUp(data: AuthRequestDto): Promise<IJwtTokens> {
     const { email, password } = data;
 
     const existingUser = await this.userRepository.findByEmail(email);
@@ -20,14 +22,14 @@ export class UserService implements IUserService {
 
     const hashedPassword = await hashPassword(password);
 
-    const newUser = await this.userRepository.create({ email, password: hashedPassword });
+    const newUser = await this.userRepository.createUser({ email, password: hashedPassword });
     if (!newUser) {
       throw new Error(TOKENS.errors.userCouldNotBeCreated);
     }
 
-    return generateToken({ email });
+    return this.generateJwtTokens(newUser);
   }
-  async login(data: AuthRequestDto): Promise<string> {
+  async login(data: AuthRequestDto): Promise<IJwtTokens> {
     const { email, password } = data;
 
     const existingUser = await this.userRepository.findByEmail(email);
@@ -42,6 +44,11 @@ export class UserService implements IUserService {
       throw new Error(TOKENS.errors.invalidCredentials);
     }
 
-    return generateToken({ email });
+    return this.generateJwtTokens(existingUser);
   }
+  generateJwtTokens = (user: IUser): IJwtTokens => {
+    const accessToken = generateAccessToken({ user_id: user.user_id, email: user.email });
+    const refreshToken = generateRefreshToken({ user_id: user.user_id, email: user.email });
+    return { accessToken, refreshToken };
+  };
 }
