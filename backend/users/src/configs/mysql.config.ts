@@ -4,6 +4,8 @@ import { User } from '../models/user.model';
 import { Profile } from '../models/profile.model';
 import { Payment } from '../models/payment.model';
 import mysql from 'mysql2/promise';
+import { logger } from './logger.config';
+import { RefreshToken } from '../models/refresh-token.model';
 
 export class MySqlConnection {
   private static instance: Sequelize | null = null;
@@ -30,10 +32,11 @@ const mySqlConnection = async (name: string, user: string, password: string, hos
     host,
     dialect: 'mysql',
     logging: false,
-    models: [User, Profile, Payment],
+    models: [User, Profile, Payment, RefreshToken],
   });
   try {
     await sequelize.authenticate();
+    logger.info(TOKENS.messages.mySqlConncetionSuccess);
     console.log(TOKENS.messages.mySqlConncetionSuccess);
     await sequelize.sync({ alter: true });
     return sequelize;
