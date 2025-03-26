@@ -4,15 +4,16 @@ import { app } from './app';
 import { dbConnection } from './configs/db.config';
 import { httpsOptions } from './configs/https.config';
 import https from 'https';
+import { checkEnviormentVariables } from './utils/env-variables-check.utils';
+import { logger } from './configs/logger.config';
 
-const PORT = process.env.PORT || TOKENS.port;
+const PORT = TOKENS.port;
 
 const start = async () => {
-  if (!process.env.JWT_KEY) {
-    throw new Error(TOKENS.errors.jwtKeyMissing);
-  }
+  checkEnviormentVariables();
   await dbConnection();
   https.createServer(httpsOptions, app).listen(PORT, () => {
+    logger.info(TOKENS.messages.serverRunning + ' ' + PORT);
     console.log(TOKENS.messages.serverRunning, PORT);
   });
 };
