@@ -41,6 +41,7 @@ const mySqlConnection = async (name: string, user: string, password: string, hos
     await sequelize.sync({ alter: true });
     return sequelize;
   } catch (error) {
+    logger.error(TOKENS.errors.mySqlConnectionFailed + error);
     throw new Error(TOKENS.errors.mySqlConnectionFailed + error);
   }
 };
