@@ -1,4 +1,4 @@
-export interface ApiResponse {
+export interface ApiResponseDto {
   message?: string;
   error?: string;
   [key: string]: any;

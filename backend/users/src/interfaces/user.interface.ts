@@ -1,7 +1,8 @@
-import { IBaseUser } from './base-user.interface';
 import { ISubscription } from './subscription.interface';
 
-export interface IUser extends IBaseUser {
+export interface IUser {
   user_id: string;
+  email: string;
+  password: string;
   subscription?: ISubscription;
 }
