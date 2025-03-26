@@ -13,6 +13,7 @@ export const TOKENS = Object.freeze({
     'https://localhost:3004',
   ],
   port: 3003,
+  token: 'Token',
   sql,
   httpStatus,
   injections,
