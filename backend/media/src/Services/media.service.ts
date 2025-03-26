@@ -10,14 +10,14 @@ import { IMediaRepository } from "../Interfaces/media-repository-interface";
 @injectable()
 export class MediaService implements IMediaService {
     constructor(@inject(TOKENS.injections.IMediaRepository) private mediaRepository: IMediaRepository) {}
-    async GetAllMovies(page?: number): Promise<IMovie[] | null> {
-        return this.mediaRepository.GetAllMovies(page);
+    async GetAllMovies(): Promise<IMovie[] | null> {
+        return this.mediaRepository.GetAllMovies();
     }
-    async GetAllTVs(page?: number): Promise<ITVSeries[] | null> {
-        return this.mediaRepository.GetAllTVs(page);
+    async GetAllTVs(): Promise<ITVSeries[] | null> {
+        return this.mediaRepository.GetAllTVs();
     }
-    async GetAllMedia(page?: number): Promise<any> {
-        return this.mediaRepository.GetAllMedia(page);
+    async GetAllMedia(): Promise<any> {
+        return this.mediaRepository.GetAllMedia();
     }
     async Search(query: string): Promise<any> {
         return this.mediaRepository.Search(query);
