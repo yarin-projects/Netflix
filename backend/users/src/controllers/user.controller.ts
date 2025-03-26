@@ -4,7 +4,7 @@ import { IUserService } from '../interfaces/user-service.interface';
 import { Request, Response } from 'express';
 import { handleError } from '../utils/error-handler.utils';
 import { AuthRequestDto } from '../dtos/auth-request.dto';
-import { setCookie } from '../utils/cookies.utils';
+import { clearCookies, setJwtCookies } from '../utils/cookies.utils';
 
 @injectable()
 export class UserController {
@@ -13,9 +13,9 @@ export class UserController {
     try {
       const data: AuthRequestDto = req.body;
 
-      const token = await this.userService.signUp(data);
+      const jwtTokens = await this.userService.signUp(data);
 
-      setCookie(res, token);
+      setJwtCookies(res, jwtTokens);
 
       res
         .status(TOKENS.httpStatus.CREATED)
@@ -28,9 +28,9 @@ export class UserController {
     try {
       const data: AuthRequestDto = req.body;
 
-      const token = await this.userService.login(data);
+      const jwtTokens = await this.userService.login(data);
 
-      setCookie(res, token);
+      setJwtCookies(res, jwtTokens);
 
       res
         .status(TOKENS.httpStatus.OK)
@@ -40,7 +40,7 @@ export class UserController {
     }
   }
   async logout(req: Request, res: Response) {
-    res.clearCookie(TOKENS.token);
+    clearCookies(res);
     res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.logoutSuccess });
   }
 }
