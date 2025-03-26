@@ -17,13 +17,6 @@ export class User extends Model {
   })
   user_id!: string;
 
-  @Column({
-    type: DataType.STRING,
-    allowNull: false,
-    unique: true,
-  })
-  email!: string;
-
   @HasMany(() => Payment)
   payments!: Payment[];
 }
