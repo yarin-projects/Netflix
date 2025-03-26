@@ -3,6 +3,7 @@ import { Profile } from './profile.model';
 import { Payment } from './payment.model';
 import { TOKENS } from '../utils/tokens.utils';
 import { SubscriptionPlan } from '../enums/subscription-plan.enum';
+import { RefreshToken } from './refresh-token.model';
 
 @Table({
   tableName: TOKENS.sql.table.user,
@@ -39,11 +40,10 @@ export class User extends Model {
   })
   subscription_plan?: string;
 
-  @Column({
-    type: DataType.BOOLEAN,
-    allowNull: true,
-  })
-  subscription_active?: boolean;
+  get subscription_active(): boolean {
+    if (!this.subscription_end_date) return false;
+    return new Date() < new Date(this.subscription_end_date);
+  }
 
   @Column({
     type: DataType.DATE,
@@ -62,4 +62,7 @@ export class User extends Model {
 
   @HasMany(() => Payment)
   payments!: Payment[];
+
+  @HasMany(() => RefreshToken)
+  refresh_tokens!: RefreshToken[];
 }
