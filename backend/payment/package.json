@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.ts",
-    "test": "jest"
+    "test": "jest",
+    "tsc": "tsc"
   },
   "jest": {
     "preset": "ts-jest",
@@ -29,8 +30,11 @@
     "mysql2": "^3.12.0",
     "sequelize": "^6.37.5",
     "sequelize-typescript": "^2.1.6",
+    "sqlite3": "^5.1.7",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2",
+    "winston": "^3.17.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
