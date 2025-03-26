@@ -2,6 +2,7 @@ import { Table, Column, DataType, Model, HasMany } from 'sequelize-typescript';
 import { Profile } from './profile.model';
 import { Payment } from './payment.model';
 import { TOKENS } from '../utils/tokens.utils';
+import { SubscriptionPlan } from '../enums/subscription-plan.enum';
 
 @Table({
   tableName: TOKENS.sql.table.user,
@@ -33,7 +34,7 @@ export class User extends Model {
   password!: string;
 
   @Column({
-    type: DataType.STRING,
+    type: DataType.ENUM(...Object.values(SubscriptionPlan)),
     allowNull: true,
   })
   subscription_plan?: string;
