@@ -4,8 +4,8 @@ import { hrtime } from 'node:process';
 import { ApiResponse } from '../interfaces/api-response.interface';
 
 export const requestLogger = (req: Request, res: Response, next: NextFunction) => {
-  logger.info(`Incoming Request: [${req.method}] ${req.url}`);
   const start = hrtime.bigint();
+  logger.info(`Incoming Request: [${req.method}] ${req.url}`);
 
   let responseBody: ApiResponse = {};
 
