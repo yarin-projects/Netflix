@@ -18,6 +18,7 @@ export class MediaController {
             if (!movies) {
                 return null;
             }
+            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.getMovies });
             return movies;
         } catch (error) {
             handleError(res,error);
@@ -31,6 +32,7 @@ export class MediaController {
             if (!tvs) {
                 return null;
             }
+            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.getTVs });
             return tvs;
         } catch (error) {
             handleError(res,error);
@@ -43,6 +45,7 @@ export class MediaController {
             if (!allMedia) {
                 return null;
             }
+            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.getMedia });
             return allMedia;
         } catch (error) {
             handleError(res,error);
@@ -56,6 +59,7 @@ export class MediaController {
             if (!searchMedia) {
                 return null;
             }
+            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.searchMedia });
             return searchMedia;
         } catch (error) {
             handleError(res,error);
@@ -69,6 +73,7 @@ export class MediaController {
             if (!movie) {
                 return null;
             }
+            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.getMovieById });
             return movie;
         } catch (error) {
             handleError(res,error);
@@ -82,6 +87,7 @@ export class MediaController {
             if (!tv) {
                 return null;
             }
+            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.getTVById });
             return tv;
         } catch (error) {
             handleError(res,error);
