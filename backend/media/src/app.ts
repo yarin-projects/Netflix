@@ -3,6 +3,7 @@ import express, { Application, urlencoded } from 'express';
 import cors from 'cors';
 import { TOKENS } from './media-utils/tokens.utils';
 import { mediaRouter } from './routers/media.router';
+import { requestLogger } from './middlewares/request-logger.middleware';
 
 const app: Application = express();
 
@@ -15,6 +16,7 @@ app.use(
   })
 );
 app.use(cookieParser());
+app.use(requestLogger);
 
 app.use(TOKENS.routes.mediaBasePath, mediaRouter);
 
