@@ -18,7 +18,7 @@ export class MediaController {
             if (!movies) {
                 return null;
             }
-            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.getMovies });
+            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.getMovies, data: movies });
             return movies;
         } catch (error) {
             handleError(res,error);
@@ -32,7 +32,7 @@ export class MediaController {
             if (!tvs) {
                 return null;
             }
-            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.getTVs });
+            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.getTVs, data: tvs });
             return tvs;
         } catch (error) {
             handleError(res,error);
@@ -45,7 +45,7 @@ export class MediaController {
             if (!allMedia) {
                 return null;
             }
-            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.getMedia });
+            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.getMedia, data: allMedia });
             return allMedia;
         } catch (error) {
             handleError(res,error);
@@ -59,7 +59,7 @@ export class MediaController {
             if (!searchMedia) {
                 return null;
             }
-            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.searchMedia });
+            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.searchMedia, data: searchMedia });
             return searchMedia;
         } catch (error) {
             handleError(res,error);
@@ -73,7 +73,7 @@ export class MediaController {
             if (!movie) {
                 return null;
             }
-            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.getMovieById });
+            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.getMovieById, data: movie });
             return movie;
         } catch (error) {
             handleError(res,error);
@@ -87,7 +87,7 @@ export class MediaController {
             if (!tv) {
                 return null;
             }
-            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.getTVById });
+            res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.getTVById, data: tv });
             return tv;
         } catch (error) {
             handleError(res,error);
