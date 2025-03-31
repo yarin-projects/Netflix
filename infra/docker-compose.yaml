@@ -1,0 +1,113 @@
+
+services:
+  # DB SQL 
+  sequelize:
+    image: sequelize:latest
+    container_name: sequelize
+    ports:
+      - "5432:5432"
+    volumes:
+      - sequelize-data:/data/db
+    networks:
+      - app-networks
+
+  # USERS SERVICE 
+  users:
+    build:
+      context: ../users
+    container_name: users-server
+    ports:
+      - "3001:3001"
+    # env_file:    one way 
+    #  - .env
+    environment:
+      - JWT_KEY=9876543210fedcba9876543210fedcba9876543210fedcba
+      - DB_TYPE=sequelize
+      - DB_URL= 
+    
+    networks:
+      - app-networks
+
+    depends_on:
+      - sequelize
+    restart: always
+
+  # PAYMENTS SERVICE 
+  payment:
+    build:
+      context: ../payment
+    container_name: payment-server
+    ports:
+      - "3003:3003"
+    environment:
+      - JWT_KEY=9876543210fedcba9876543210fedcba9876543210fedcba
+      - DB_TYPE=sequelize
+      - DB_URL= 
+    
+    networks:
+      - app-networks
+
+    depends_on:
+      - sequelize
+      - users
+
+  # PROFILES SERVICE 
+  profiles:
+    build:
+      context: ../profiles
+    container_name: profiles-server
+    ports:
+      - "3002:3002"
+    environment:
+      - JWT_KEY=9876543210fedcba9876543210fedcba9876543210fedcba
+      - DB_TYPE=sequelize
+      - DB_URL= 
+    
+    networks:
+      - app-networks
+
+    depends_on:
+      - sequelize
+      - users
+
+  # PROXY SERVICE
+  proxy:
+    build:
+      context: ../proxy
+    container_name: proxy
+    ports:
+      - "5000:5000"
+    depends_on:
+      - users
+      - media
+      - payment
+      - profiles
+    networks:
+      - app-networks
+
+  # redis ?
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data/db
+    networks:
+      - redis-net
+
+    
+  redis-cli:
+    image: redis:latest
+    container_name: redis-cli
+    command: sh -c "while true; do sleep 30; done;"
+    networks:
+      - redis-net
+
+# settings
+volumes:
+ users-data:
+
+networks:
+  app-networks:
+    driver: bridge
