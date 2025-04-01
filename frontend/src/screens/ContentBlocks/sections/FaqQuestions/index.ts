@@ -1,0 +1,1 @@
+export { FaqQuestions } from "./FaqQuestions";

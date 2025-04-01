@@ -1,0 +1,60 @@
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .all-\[unset\] {
+    all: unset;
+  }
+}
+
+:root {
+  --bold-title1-font-family: "Netflix Sans ", Helvetica;
+  --bold-title1-font-size: 48px;
+  --bold-title1-font-style: normal;
+  --bold-title1-font-weight: 700;
+  --bold-title1-letter-spacing: 0px;
+  --bold-title1-line-height: 62px;
+  --greygrey-10: rgba(229, 229, 229, 1);
+  --greygrey-100: rgba(179, 179, 179, 1);
+  --greygrey-200: rgba(128, 128, 128, 1);
+  --greygrey-700: rgba(42, 42, 42, 1);
+  --greygrey-800: rgba(35, 35, 35, 1);
+  --greygrey-850: rgba(24, 24, 24, 1);
+  --medium-body-font-family: "Netflix Sans", Helvetica;
+  --medium-body-font-size: 16px;
+  --medium-body-font-style: normal;
+  --medium-body-font-weight: 500;
+  --medium-body-letter-spacing: 0px;
+  --medium-body-line-height: 24px;
+  --medium-smallbody-font-family: "Netflix Sans", Helvetica;
+  --medium-smallbody-font-size: 14px;
+  --medium-smallbody-font-style: normal;
+  --medium-smallbody-font-weight: 500;
+  --medium-smallbody-letter-spacing: 0px;
+  --medium-smallbody-line-height: normal;
+  --regular-caption2-font-family: "Netflix Sans", Helvetica;
+  --regular-caption2-font-size: 11px;
+  --regular-caption2-font-style: normal;
+  --regular-caption2-font-weight: 400;
+  --regular-caption2-letter-spacing: 0px;
+  --regular-caption2-line-height: normal;
+  --regular-smallbody-font-family: "Netflix Sans", Helvetica;
+  --regular-smallbody-font-size: 14px;
+  --regular-smallbody-font-style: normal;
+  --regular-smallbody-font-weight: 400;
+  --regular-smallbody-letter-spacing: 0px;
+  --regular-smallbody-line-height: 17px;
+  --regular-title2-font-family: "Netflix Sans", Helvetica;
+  --regular-title2-font-size: 24px;
+  --regular-title2-font-style: normal;
+  --regular-title2-font-weight: 400;
+  --regular-title2-letter-spacing: 0px;
+  --regular-title2-line-height: 30px;
+  --regular-title3-font-family: "Netflix Sans", Helvetica;
+  --regular-title3-font-size: 21px;
+  --regular-title3-font-style: normal;
+  --regular-title3-font-weight: 400;
+  --regular-title3-letter-spacing: 0px;
+  --regular-title3-line-height: 25px;
+  --secondaryred-300: rgba(245, 7, 35, 1);
+}

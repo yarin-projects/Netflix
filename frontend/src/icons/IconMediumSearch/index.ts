@@ -1,0 +1,1 @@
+export { IconMediumSearch } from "./IconMediumSearch";
