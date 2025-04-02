@@ -1,5 +1,5 @@
 import React from "react";
-import { IconSmallArrowdown1 } from "../../icons/IconSmallArrowdown1";
+import { IconSmallArrowdown1 } from ".././icons/IconSmallArrowdown1";
 
 interface Props {
   type: "user-profile-menu" | "user-profile-picture";

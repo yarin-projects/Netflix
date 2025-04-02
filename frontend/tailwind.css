@@ -15,8 +15,10 @@
   --bold-title1-letter-spacing: 0px;
   --bold-title1-line-height: 62px;
   --greygrey-10: rgba(229, 229, 229, 1);
+  --greygrey-50: rgba(188, 188, 188, 1);
   --greygrey-100: rgba(179, 179, 179, 1);
   --greygrey-200: rgba(128, 128, 128, 1);
+  --greygrey-350: rgba(84, 84, 84, 1);
   --greygrey-700: rgba(42, 42, 42, 1);
   --greygrey-800: rgba(35, 35, 35, 1);
   --greygrey-850: rgba(24, 24, 24, 1);
@@ -57,4 +59,17 @@
   --regular-title3-letter-spacing: 0px;
   --regular-title3-line-height: 25px;
   --secondaryred-300: rgba(245, 7, 35, 1);
+  --primaryblack: rgba(0, 0, 0, 1);
+  --primaryred: rgba(229, 9, 20, 1);
+  --primarywhite: rgba(255, 255, 255, 1);
+  --regular-body-font-family: "Netflix Sans", Helvetica;
+  --regular-body-font-size: 16px;
+  --regular-body-font-style: normal;
+  --regular-body-font-weight: 400;
+  --regular-body-letter-spacing: 0px;
+  --regular-body-line-height: normal;
+  --transparent-white20: rgba(255, 255, 255, 0.2);
+  --transparent-white35: rgba(255, 255, 255, 0.35);
+  --transparent-white70: rgba(255, 255, 255, 0.7);
+  --transparentblack-60: rgba(0, 0, 0, 0.6);
 }

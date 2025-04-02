@@ -1,7 +1,7 @@
 import React from "react";
-import { Button } from "../Button";
-import { Logo } from "../Logo";
-import { SmallAvatar } from "../SmallAvatar";
+import { Button } from "./Button";
+import { Logo } from "./Logo";
+import { SmallAvatar } from "./SmallAvatar";
 
 interface Props {
   type: "home-pgae" | "landing-page";

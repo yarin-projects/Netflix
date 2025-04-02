@@ -1,1 +1,0 @@
-export { IconMediumSearch } from "./IconMediumSearch";

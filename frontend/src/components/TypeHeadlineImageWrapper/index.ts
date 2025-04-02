@@ -1,1 +1,0 @@
-export { TypeHeadlineImageWrapper } from "./TypeHeadlineImageWrapper";
