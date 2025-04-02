@@ -1,5 +1,5 @@
 import React from "react";
-import { ScreenTvScreenWrapper } from "../ScreenTvScreenWrapper";
+import { ScreenTvScreenWrapper } from "./ScreenTvScreenWrapper";
 
 interface Props {
   type: "image-headline" | "headline-image";
