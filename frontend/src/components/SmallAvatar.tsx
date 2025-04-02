@@ -4,7 +4,7 @@ import { IconSmallArrowdown1 } from ".././icons/IconSmallArrowdown1";
 interface Props {
   type: "user-profile-menu" | "user-profile-picture";
   size: "small";
-  className: any;
+  className?: any;
 }
 
 export const SmallAvatar = ({ type, size, className }: Props): JSX.Element => {

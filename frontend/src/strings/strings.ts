@@ -5,7 +5,7 @@ export const strings = {
     login: {
       title: "Login Page",
       dontHaveAnAccount: "Dont have an account ?",
-      login: "Login"    
+      signIn: "Sign In",    
     },
     signup: {
       title:"Signup page",
@@ -14,6 +14,9 @@ export const strings = {
     },
     logout: {
       logout: "Logout"
+    },
+    landingPage: {
+      landingPage: "landing-page"
     },
     update: {
       title:"Update Page",

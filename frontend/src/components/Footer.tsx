@@ -4,6 +4,30 @@ interface Props {
   type: "home-page" | "authentication-page" | "landing-page";
   className: any;
   href: string;
+  divClassName?: any;
+  divClassName1: string;
+  divClassName2: string;
+  divClassName3: string;
+  divClassName4: string;
+  divClassName5: string;
+  divClassName6: string;
+  divClassName7: string;
+  divClassName8: string;
+  divClassNameOverride: string;
+  frameClassName: string;
+  hasDiv: boolean;
+  hasDiv1: boolean;
+  hasFrame: boolean;
+  hasFrame1: boolean;
+  questionsCallClassName: string;
+  text: string;
+  text1: string;
+  text2: string;
+  text3: string;
+  text4: string;
+  text5: string;
+  text6: string;
+  visible: boolean;
 }
 
 export const Footer = ({ type, className, href }: Props): JSX.Element => {

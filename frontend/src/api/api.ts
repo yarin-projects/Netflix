@@ -1,6 +1,6 @@
 import axios from "axios";
 import { apiBaseUrl } from "../config/config";
-import { LoginFormData, SignupFormData, UpdateFormData } from "../schemas/schema";
+import { LoginFormData, SignupFormData, UpdateFormData } from "../schemas/auth.schema";
 
 const api = axios.create({
     baseURL: apiBaseUrl,
