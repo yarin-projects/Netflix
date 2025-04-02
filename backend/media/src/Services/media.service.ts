@@ -8,24 +8,48 @@ import { TOKENS } from "../media-utils/tokens.utils";
 import { IMediaRepository } from "../Interfaces/media-repository-interface";
 
 @injectable()
-export class MediaService implements IMediaService {
+export class MediaService implements IMediaService { 
     constructor(@inject(TOKENS.injections.IMediaRepository) private mediaRepository: IMediaRepository) {}
     async GetAllMovies(): Promise<IMovie[] | null> {
-        return this.mediaRepository.GetAllMovies();
+        const movies = await this.mediaRepository.GetAllMovies();
+        if (!movies) {
+            throw new Error(TOKENS.errors.moviesNotFound);
+        }
+        return movies;  
     }
     async GetAllTVs(): Promise<ITVSeries[] | null> {
-        return this.mediaRepository.GetAllTVs();
+        const tvs = await this.mediaRepository.GetAllTVs();
+        if (!tvs) {
+            throw new Error(TOKENS.errors.seriesNotFound);
+        }
+        return tvs;
     }
     async GetAllMedia(): Promise<any> {
-        return this.mediaRepository.GetAllMedia();
+        const media = await this.mediaRepository.GetAllMedia();
+        if (!media) {
+            throw new Error(TOKENS.errors.mediaNotFound);
+        }
+        return media;
     }
     async Search(query: string): Promise<any> {
-        return this.mediaRepository.Search(query);
+        const search = await this.mediaRepository.Search(query);
+        if (!search) {
+            throw new Error(TOKENS.errors.mediaNotFound);
+        }
+        return search;
     }
-    async GetMovieById(id: number): Promise<IFullMovie | null> {
-        return this.mediaRepository.GetMovieById(id);
+    async GetMovieById(id: number) {
+        const movie = await this.mediaRepository.GetMovieById(id);
+        if (!movie) {
+            throw new Error(TOKENS.errors.movieNotFound);
+        }
+        return movie;
     }
-    async GetTVById(id: number): Promise<IFullTVSeries | null> {
-        return this.mediaRepository.GetTVById(id);
+    async GetTVById(id: number) {
+        const tv = await this.mediaRepository.GetTVById(id);
+        if (!tv) {
+            throw new Error(TOKENS.errors.seriesNotFound);
+        }
+        return tv;
     }
 }
