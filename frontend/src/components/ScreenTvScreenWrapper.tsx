@@ -1,5 +1,3 @@
-import React from "react";
-
 interface Props {
   screen:
     | "mac-computer-screen"
@@ -9,11 +7,11 @@ interface Props {
     | "picture-kids";
   className: any;
   frameClassName: any;
-  boxshotClassName: any;
-  frameClassNameOverride: any;
-  divClassName: any;
-  divClassNameOverride: any;
-  downloadIconClassName: any;
+  boxshotClassName?: any;
+  frameClassNameOverride?: any;
+  divClassName?: any;
+  divClassNameOverride?: any;
+  downloadIconClassName?: any;
 }
 
 export const ScreenTvScreenWrapper = ({

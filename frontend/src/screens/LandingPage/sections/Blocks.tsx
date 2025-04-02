@@ -1,6 +1,5 @@
-import React from "react";
-import { ScreensPreview } from "../../../../components/ScreensPreview";
-import { TypeHeadlineImageWrapper } from "../../../../components/TypeHeadlineImageWrapper";
+import { ScreensPreview } from "../../../components/ScreensPreview";
+import { TypeHeadlineImageWrapper } from "../../../components/TypeHeadlineImageWrapper";
 
 export const Blocks = (): JSX.Element => {
   return (

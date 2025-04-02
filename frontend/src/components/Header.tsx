@@ -1,4 +1,4 @@
-import React from "react";
+import { strings } from "../strings/strings";
 import { Button } from "./Button";
 import { Logo } from "./Logo";
 import { SmallAvatar } from "./SmallAvatar";
@@ -6,7 +6,10 @@ import { SmallAvatar } from "./SmallAvatar";
 interface HeaderProps {
   type: "home-page" | "landing-page";
   className?: string;
-  hasCombo: boolean;
+  hasCombo?: boolean;
+  buttonDivClassName?: string;
+  buttonTypeSigninSizeClassName?: string;
+  divClassName?: string;
 }
 
 export const Header = ({ type }: HeaderProps): JSX.Element => {
@@ -35,7 +38,7 @@ export const Header = ({ type }: HeaderProps): JSX.Element => {
               <img className="relative w-[7.79px] h-[3.75px]" alt="Polygon" />
             </div>
 
-            <Button size="small" state="default" type="sign-in" />
+            <Button size="small" state="default" type="sign-in">{strings.login.signIn}</Button>
           </>
         )}
 

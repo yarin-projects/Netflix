@@ -1,10 +1,8 @@
-import React from "react";
-
 interface Props {
   state: "on-hover" | "default";
   className: any;
   divClassName: any;
-  text: string;
+  text?: string;
 }
 
 export const FaqQuestions = ({

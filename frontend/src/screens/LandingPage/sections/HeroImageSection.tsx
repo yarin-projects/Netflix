@@ -1,13 +1,13 @@
-import React from "react";
-import { Header } from "../../../../components/Header";
-import { InserfieldEmail } from "../../../../components/InserfieldEmail";
+import { Header } from "../../../components/Header";
+import { InserfieldEmail } from "../../../components/InserfieldEmail";
 
 export const HeroImageSection = (): JSX.Element => {
   return (
     <div className="absolute w-[1440px] h-[700px] top-0 left-0">
       <div className="relative h-[700px]">
-        <div className="absolute w-[1440px] h-[700px] top-0 left-0 bg-[url(https://c.animaapp.com/m8zprqm5u99XUd/img/hero-image.png)] bg-cover bg-[50%_50%]">
-          <div className="h-[700px]" />
+        <div className="absolute w-[1440px] h-[700px] top-0 left-0 
+        bg-[url(https://c.animaapp.com/m8zprqm5u99XUd/img/hero-image.png)] bg-cover bg-[50%_50%]">
+        <div className="h-[700px]" />
         </div>
 
         <Header

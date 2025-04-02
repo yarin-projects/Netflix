@@ -4,6 +4,7 @@ import { Button } from '../components/Button'
 import { InputField } from '../components/InputField'
 import { strings } from '../strings/strings'
 
+
 const Login = () => {
   return (
     <div className="flex flex-col w-[450px] h-[708px] items-start gap-3 px-[68px] py-12 absolute top-[92px] left-[495px] bg-transparentblack-60 rounded overflow-hidden">
@@ -21,6 +22,7 @@ const Login = () => {
               state="default"
               type="email-or-phone"
               inputType="email"
+              placeholder='Enter Email'
             />
             <InputField
               className="!text-greygrey-50"
@@ -29,6 +31,7 @@ const Login = () => {
               state="default"
               type="password"
               inputType="password"
+              placeholder='Enter Password'
             />
             <Button
               className="!bg-primaryred"
@@ -36,8 +39,7 @@ const Login = () => {
               size="large"
               state="default"
               type="sign-in"
-              //onclick={() => navigate("/HomePage")}
-            />
+            >{strings.login.signIn}</Button>
             <div className="relative w-fit font-regular-body font-[number:var(--regular-body-font-weight)] text-transparent-white70 text-[length:var(--regular-body-font-size)] text-center tracking-[var(--regular-body-letter-spacing)] leading-[var(--regular-body-line-height)] [font-style:var(--regular-body-font-style)]">
               OR
             </div>

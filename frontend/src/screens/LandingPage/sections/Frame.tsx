@@ -1,6 +1,5 @@
-import React from "react";
-import { FaqQuestions } from "../../../../components/FaqQuestions";
-import { InserfieldEmail } from "../../../../components/InserfieldEmail";
+import { FaqQuestions } from "../../../components/FaqQuestions";
+import { InserfieldEmail } from "../../../components/InserfieldEmail";
 
 export const Frame = (): JSX.Element => {
   return (

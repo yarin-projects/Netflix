@@ -1,9 +1,14 @@
-import React from "react";
 import { ScreenTvScreenWrapper } from "./ScreenTvScreenWrapper";
 
 interface Props {
   type: "image-headline" | "headline-image";
-  screenTvScreenWrapperFrameClassName: any;
+  screenTvScreenWrapperFrameClassName?: any;
+  className: string;
+  divClassName: string;
+  divClassNameOverride: string;
+  screensPreviewScreen?: string;
+  text?: string;
+  text1?: string;
 }
 
 export const TypeHeadlineImageWrapper = ({

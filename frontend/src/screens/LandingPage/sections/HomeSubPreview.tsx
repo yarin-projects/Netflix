@@ -1,5 +1,4 @@
-import React from "react";
-import { IconMediumArrowleft } from "../../../../icons/IconMediumArrowleft";
+import { IconMediumArrowleft } from "../../../icons/IconMediumArrowleft";
 
 export const HomeSubPreview = (): JSX.Element => {
   return (

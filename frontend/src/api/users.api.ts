@@ -11,7 +11,6 @@ const api = axios.create({
 export interface BaseApiResponse {
   message: string;
 }
-
 export interface AuthResponse extends BaseApiResponse {
   token: string;
 }
@@ -40,6 +39,5 @@ export const logoutRequest = async (): Promise<void> =>{
 
 export const updateUserRequest = async(data: UpdateFormData): Promise<BaseApiResponse> =>{
   const response = await api.post("/api/users/update", data);
-  console.log(response);
   return response.data;
 }

@@ -1,5 +1,4 @@
-import React from "react";
-import { TypeLandingpageWrapper } from "../../../../components/TypeLandingpageWrapper";
+import { TypeLandingpageWrapper } from "../../../components/TypeLandingpageWrapper";
 
 export const Footer = (): JSX.Element => {
   return (

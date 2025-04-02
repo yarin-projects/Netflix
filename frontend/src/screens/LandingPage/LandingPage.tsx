@@ -1,4 +1,3 @@
-import React from "react";
 import { Blocks } from "./sections/Blocks";
 import { Footer } from "./sections/Footer";
 import { Frame } from "./sections/Frame";
@@ -14,7 +13,6 @@ export const LandingPage = (): JSX.Element => {
           <Blocks />
           <HomeSubPreview />
         </div>
-
         <Frame />
         <Footer />
       </div>

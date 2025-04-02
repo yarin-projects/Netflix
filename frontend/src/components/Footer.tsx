@@ -1,4 +1,4 @@
-import React from "react";
+import TypographyFooter from "./Typography/TypographyFooter";
 
 interface Props {
   type: "home-page" | "authentication-page" | "landing-page";
@@ -33,8 +33,13 @@ interface Props {
 export const Footer = ({ type, className, href }: Props): JSX.Element => {
   return (
     <div
-      className={`inline-flex flex-col items-start relative ${type === "landing-page" ? "border-[#232323]" : ""} ${type === "landing-page" ? "border-t-8" : ""} ${type === "landing-page" ? "[border-top-style:solid]" : ""} ${type === "home-page" ? "gap-3" : "gap-2.5"} ${type === "home-page" ? "pt-[68px] pb-1 px-[230px]" : "px-[168px] py-[72px]"} ${type === "authentication-page" ? "h-[366px]" : ""} ${className}`}
-    >
+      className={`inline-flex flex-col items-start relative 
+        ${type === "landing-page" ? "border-[#232323]" : ""} ${type === "landing-page" ? "border-t-8" : ""}
+         ${type === "landing-page" ? "[border-top-style:solid]" : ""}
+          ${type === "home-page" ? "gap-3" : "gap-2.5"}
+           ${type === "home-page" ? "pt-[68px] pb-1 px-[230px]" : "px-[168px] py-[72px]"}
+            ${type === "authentication-page" ? "h-[366px]" : ""} ${className}`}>
+              
       {["authentication-page", "landing-page"].includes(type) && (
         <div className="w-[1104px] flex flex-col items-start gap-8 flex-[0_0_auto] relative">
           <div className="inline-flex flex-col items-start max-w-[1104px] gap-6 flex-[0_0_auto] relative">
@@ -56,19 +61,13 @@ export const Footer = ({ type, className, href }: Props): JSX.Element => {
               className={`inline-flex flex-col items-start flex-[0_0_auto] relative ${type === "authentication-page" ? "gap-[21px]" : "gap-4"}`}
             >
               <div className="w-[1104px] flex items-start gap-3 flex-[0_0_auto] relative">
-                <div className="[font-family:'Netflix_Sans-Regular',Helvetica] w-[267px] mt-[-1.00px] tracking-[0] text-sm text-[#b3b3b3] underline font-normal leading-[18px] relative">
-                  FAQ
-                </div>
+                <TypographyFooter>FAQ</TypographyFooter>
+                <TypographyFooter>Help Center</TypographyFooter>
+                <TypographyFooter>
+                {type === "authentication-page" && <>Netflix Shop</>}
 
-                <div className="[font-family:'Netflix_Sans-Regular',Helvetica] w-[267px] mt-[-1.00px] tracking-[0] text-sm text-[#b3b3b3] underline font-normal leading-[18px] relative">
-                  Help Center
-                </div>
-
-                <div className="[font-family:'Netflix_Sans-Regular',Helvetica] w-[267px] mt-[-1.00px] tracking-[0] text-sm text-[#b3b3b3] underline font-normal leading-[18px] relative">
-                  {type === "authentication-page" && <>Netflix Shop</>}
-
-                  {type === "landing-page" && <>Account</>}
-                </div>
+                {type === "landing-page" && <>Account</>}
+                </TypographyFooter>
 
                 <div className="[font-family:'Netflix_Sans-Regular',Helvetica] w-[267px] mt-[-1.00px] tracking-[0] text-sm text-[#b3b3b3] underline font-normal leading-[18px] relative">
                   {type === "authentication-page" && <>Terms of Use</>}
@@ -155,22 +154,13 @@ export const Footer = ({ type, className, href }: Props): JSX.Element => {
                   </div>
 
                   <div className="flex w-[1104px] items-start gap-3 relative flex-[0_0_auto]">
-                    <div className="relative w-[267px] mt-[-1.00px] [font-family:'Netflix_Sans-Regular',Helvetica] font-normal text-[#b3b3b3] text-sm tracking-[0] leading-[18px] underline">
-                      Legal Notices
-                    </div>
-
-                    <div className="relative w-[267px] mt-[-1.00px] [font-family:'Netflix_Sans-Regular',Helvetica] font-normal text-[#b3b3b3] text-sm tracking-[0] leading-[18px] underline">
-                      Only on Netflix
-                    </div>
-
-                    <p className="relative w-[267px] mt-[-1.00px] [font-family:'Netflix_Sans-Regular',Helvetica] font-normal text-[#b3b3b3] text-sm tracking-[0] leading-[18px] underline">
+                    <TypographyFooter>Legal Notices</TypographyFooter>
+                    <TypographyFooter>Only on Netflix</TypographyFooter>
+                    <TypographyFooter>
                       Do Not Sell or Share Personal <br />
                       Information
-                    </p>
-
-                    <div className="relative w-[267px] mt-[-1.00px] [font-family:'Netflix_Sans-Regular',Helvetica] font-normal text-[#b3b3b3] text-sm tracking-[0] leading-[18px] underline">
-                      Ad Choices
-                    </div>
+                    </TypographyFooter>
+                    <TypographyFooter>Ad Choices</TypographyFooter>
                   </div>
                 </>
               )}
