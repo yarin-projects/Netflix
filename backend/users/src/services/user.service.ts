@@ -5,14 +5,12 @@ import { IUserRepository } from '../interfaces/user-repository.interface';
 import { AuthRequestDto } from '../dtos/auth-request.dto';
 import { comparePassword, hashPassword } from '../utils/bcrypt.utils';
 import { logger } from '../configs/logger.config';
-import { generateAccessToken, generateRefreshToken } from '../utils/jwt.utils';
-import { IJwtTokens } from '../interfaces/jwt-tokens.interface';
 import { IUser } from '../interfaces/user.interface';
 
 @injectable()
 export class UserService implements IUserService {
   constructor(@inject(TOKENS.injections.iUserRepository) private userRepository: IUserRepository) {}
-  async signUp(data: AuthRequestDto): Promise<IJwtTokens> {
+  async signUp(data: AuthRequestDto): Promise<IUser> {
     const { email, password } = data;
 
     const existingUser = await this.userRepository.findByEmail(email);
@@ -27,9 +25,9 @@ export class UserService implements IUserService {
       throw new Error(TOKENS.errors.userCouldNotBeCreated);
     }
 
-    return this.generateJwtTokens(newUser);
+    return newUser;
   }
-  async login(data: AuthRequestDto): Promise<IJwtTokens> {
+  async login(data: AuthRequestDto): Promise<IUser> {
     const { email, password } = data;
 
     const existingUser = await this.userRepository.findByEmail(email);
@@ -44,11 +42,6 @@ export class UserService implements IUserService {
       throw new Error(TOKENS.errors.invalidCredentials);
     }
 
-    return this.generateJwtTokens(existingUser);
+    return existingUser;
   }
-  generateJwtTokens = (user: IUser): IJwtTokens => {
-    const accessToken = generateAccessToken({ user_id: user.user_id, email: user.email });
-    const refreshToken = generateRefreshToken({ user_id: user.user_id, email: user.email });
-    return { accessToken, refreshToken };
-  };
 }

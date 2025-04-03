@@ -1,11 +1,8 @@
 import { Sequelize } from 'sequelize-typescript';
 import { TOKENS } from '../utils/tokens.utils';
 import { User } from '../models/user.model';
-import { Profile } from '../models/profile.model';
-import { Payment } from '../models/payment.model';
 import mysql from 'mysql2/promise';
 import { logger } from './logger.config';
-import { RefreshToken } from '../models/refresh-token.model';
 
 export class MySqlConnection {
   private static instance: Sequelize | null = null;
@@ -32,7 +29,7 @@ const mySqlConnection = async (name: string, user: string, password: string, hos
     host,
     dialect: 'mysql',
     logging: false,
-    models: [User, Profile, Payment, RefreshToken],
+    models: [User],
   });
   try {
     await sequelize.authenticate();

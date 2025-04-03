@@ -1,14 +1,8 @@
 export const sql = {
   table: {
-    user: 'users',
-    profile: 'profiles',
-    payment: 'payments',
-    refreshToken: 'refresh_tokens',
+    users: 'users',
   },
   model: {
     user: 'User',
-    profile: 'Profile',
-    payment: 'Payment',
-    refreshToken: 'RefreshToken',
   },
 };

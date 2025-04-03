@@ -15,7 +15,7 @@ export class UserController {
 
       const jwtTokens = await this.userService.signUp(data);
 
-      setJwtCookies(res, jwtTokens);
+      // setJwtCookies(res, jwtTokens);
 
       res
         .status(TOKENS.httpStatus.CREATED)
@@ -30,7 +30,7 @@ export class UserController {
 
       const jwtTokens = await this.userService.login(data);
 
-      setJwtCookies(res, jwtTokens);
+      // setJwtCookies(res, jwtTokens);
 
       res
         .status(TOKENS.httpStatus.OK)

@@ -1,7 +1,7 @@
 import { AuthRequestDto } from '../dtos/auth-request.dto';
-import { IJwtTokens } from './jwt-tokens.interface';
+import { IUser } from './user.interface';
 
 export interface IUserService {
-  signUp(data: AuthRequestDto): Promise<IJwtTokens>;
-  login(data: AuthRequestDto): Promise<IJwtTokens>;
+  signUp(data: AuthRequestDto): Promise<IUser>;
+  login(data: AuthRequestDto): Promise<IUser>;
 }
