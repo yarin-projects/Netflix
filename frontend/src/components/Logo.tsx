@@ -1,4 +1,3 @@
-import React from "react";
 import netflixLogo from "../assets/netflix-2015-n-logo-1.png";
 import wordmark from "../assets/wordmark-3.png";
 
