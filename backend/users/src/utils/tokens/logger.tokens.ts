@@ -1,10 +1,13 @@
+const usersService = '[Users Service]';
+const outgoingResponse = `${usersService} Outgoing Response:`;
 const logFormat = (level: string, message: string, timestamp: string) =>
   `${timestamp} ${level}: ${message}`;
-const logRequest = (method: string, url: string) => `Incoming Request: [${method}] ${url}`;
+const logRequest = (method: string, url: string) =>
+  `${usersService} Incoming Request: [${method}] ${url}`;
 const logMessageResponse = (statusCode: string, url: string, durationMs: string, message: string) =>
-  `Outgoing Response: [${statusCode}] ${url} (${durationMs} ms) - Message: ${message}`;
+  `${outgoingResponse} [${statusCode}] ${url} (${durationMs} ms) - Message: ${message}`;
 const logErrorResponse = (statusCode: string, url: string, durationMs: string, error: string) =>
-  `Outgoing Response: [${statusCode}] ${url} (${durationMs} ms) - Error: ${error}`;
+  `${outgoingResponse} [${statusCode}] ${url} (${durationMs} ms) - Error: ${error}`;
 
 export const logger = {
   config: {
