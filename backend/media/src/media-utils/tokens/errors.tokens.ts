@@ -4,6 +4,5 @@ export const errors = {
   moviesNotFound: 'Movies not found',
   mediaNotFound: 'Media not found',
   seriesNotFound: 'Series not found',
-  mediaNotFound: 'Media not found',
   jwtKeyMissing: 'JWT_KEY is not defined'
 };

@@ -1,7 +1,7 @@
-import { IMovie } from "../Interfaces/Model-Interfaces/MOVIE/movie-interface";
-import { ITVSeries } from "../Interfaces/Model-Interfaces/TV/tv-series-interface";
-import { IFullMovie } from "../Interfaces/Model-Interfaces/MOVIE/full-movie-interface";
-import { IFullTVSeries } from "../Interfaces/Model-Interfaces/TV/full-tv-series-interface";
+import { IMovie } from "../../../../Shared/Model-Interfaces/MOVIE/movie-interface";
+import { ITVSeries } from "../../../../Shared/Model-Interfaces/TV/tv-series-interface";
+import { IFullMovie } from "../../../../Shared/Model-Interfaces/MOVIE/full-movie-interface";
+import { IFullTVSeries } from "../../../../Shared/Model-Interfaces/TV/full-tv-series-interface";
 import { inject, injectable } from 'inversify';
 import { IMediaService } from "../Interfaces/media-service-interface";
 import { TOKENS } from "../media-utils/tokens.utils";
@@ -38,14 +38,14 @@ export class MediaService implements IMediaService {
         }
         return search;
     }
-    async GetMovieById(id: number) {
+    async GetMovieById(id: string) {
         const movie = await this.mediaRepository.GetMovieById(id);
         if (!movie) {
             throw new Error(TOKENS.errors.movieNotFound);
         }
         return movie;
     }
-    async GetTVById(id: number) {
+    async GetTVById(id: string) {
         const tv = await this.mediaRepository.GetTVById(id);
         if (!tv) {
             throw new Error(TOKENS.errors.seriesNotFound);

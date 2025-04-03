@@ -1,10 +1,10 @@
 import {IMediaRepository} from '../Interfaces/media-repository-interface';
 import {config} from 'dotenv';
 import axios from 'axios';
-import { ITVSeries } from '../Interfaces/Model-Interfaces/TV/tv-series-interface';
-import { IMovie } from '../Interfaces/Model-Interfaces/MOVIE/movie-interface';
-import { IFullTVSeries } from '../Interfaces/Model-Interfaces/TV/full-tv-series-interface';
-import { IFullMovie } from '../Interfaces/Model-Interfaces/MOVIE/full-movie-interface';
+import { ITVSeries } from '../../../../Shared/Model-Interfaces/TV/tv-series-interface';
+import { IMovie } from '../../../../Shared/Model-Interfaces/MOVIE/movie-interface';
+import { IFullTVSeries } from '../../../../Shared/Model-Interfaces/TV/full-tv-series-interface';
+import { IFullMovie } from '../../../../Shared/Model-Interfaces/MOVIE/full-movie-interface';
 config();
 
 export class MediaRepository implements IMediaRepository {
@@ -56,7 +56,7 @@ export class MediaRepository implements IMediaRepository {
         else return null;
     }
 
-    async GetMovieById(id: number): Promise<IFullMovie | null> {
+    async GetMovieById(id: string): Promise<IFullMovie | null> {
         const response = await axios.get(`${this.full_movie}/${id}?api_key=${this.apikey}`);
         if (response) {
         return response.data.results;
@@ -64,7 +64,7 @@ export class MediaRepository implements IMediaRepository {
         else return null;
     }
 
-    async GetTVById(id: number): Promise<IFullTVSeries | null> {
+    async GetTVById(id: string): Promise<IFullTVSeries | null> {
         const response = await axios.get(`${this.full_tv_series}/${id}?api_key=${this.apikey}`);
             if (response) {
             return response.data.results;

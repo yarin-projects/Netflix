@@ -5,6 +5,6 @@ export const routes = {
   series: '/allSeries',
   myList: '/mylist',
   search: '/search',
-  getMovie: '/movie',
-  getSeries: '/series',
+  getMovie: '/movie/:id',
+  getSeries: '/series/:id',
 };
