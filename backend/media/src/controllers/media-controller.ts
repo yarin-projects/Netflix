@@ -63,7 +63,7 @@ export class MediaController {
 
   async GetMovieById(req: Request, res: Response) {
     try {
-      const movie = await this.mediaService.GetMovieById(req.body.id); //idk about it
+      const movie = await this.mediaService.GetMovieById(req.params.id); //idk about it
       if (!movie) {
         handleError(res, new Error(TOKENS.errors.movieNotFound));
         return;

@@ -15,15 +15,15 @@ interface HeaderProps {
 export const Header = ({ type }: HeaderProps): JSX.Element => {
   return (
     <div
-      className={`flex justify-between relative ${type === "home-page" ? "w-[1440px]" : "w-[1200px]"} ${type === "home-page" ? "items-center" : "items-start"} ${type === "home-page" ? "px-[58px] py-0" : "pt-6 pb-7 px-12"} ${type === "home-page" ? "h-[68px]" : "h-[92px]"}`}
-    >
+      className={`flex justify-between relative ${type === "home-page" ? "w-[1440px]" : "w-[1200px]"}
+       ${type === "home-page" ? "items-center" : "items-start"}
+        ${type === "home-page" ? "px-[58px] py-0" : "pt-6 pb-7 px-12"}
+         ${type === "home-page" ? "h-[68px]" : "h-[92px]"}`}>
+          
       {type === "landing-page" && (
-        <Logo className="!bg-[unset]" size="medium" type="word" />
-      )}
+        <Logo className="!bg-[unset]" size="medium" type="word" />)}
 
-      <div
-        className={`inline-flex items-center flex-[0_0_auto] relative ${type === "home-page" ? "gap-[45px]" : "gap-6"}`}
-      >
+      <div className={`inline-flex items-center flex-[0_0_auto] relative ${type === "home-page" ? "gap-[45px]" : "gap-6"}`}>
         {type === "landing-page" && (
           <>
             <div className="flex w-[131px] h-8 items-center justify-center gap-4 pl-2 pr-4 py-1.5 relative bg-[#00000080] rounded border border-solid border-[#545454]">

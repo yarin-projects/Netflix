@@ -1,6 +1,7 @@
 type TypographyFooterProps = {
     children: React.ReactNode;
 }
+
 const TypographyFooter = ({children} : TypographyFooterProps) => {
   return (
     <div className="[font-family:'Netflix_Sans-Regular',Helvetica] w-[267px] mt-[-1.00px] 
