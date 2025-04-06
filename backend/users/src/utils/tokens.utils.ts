@@ -1,6 +1,7 @@
 import { allowedOrigins } from './tokens/allowed-origins.tokens';
 import { errors } from './tokens/errors.tokens';
 import { httpStatus } from './tokens/http-status-codes.tokens';
+import { httpsOptions } from './tokens/https-options.tokens';
 import { injections } from './tokens/injections.tokens';
 import { jwt } from './tokens/jwt.tokens';
 import { logger } from './tokens/logger.tokens';
@@ -21,6 +22,7 @@ export const TOKENS = Object.freeze({
   sql,
   logger,
   httpStatus,
+  httpsOptions,
   injections,
   routes,
   validations,
