@@ -3,8 +3,8 @@ import { Button } from "./Button";
 import { Logo } from "./Logo";
 import { SmallAvatar } from "./SmallAvatar";
 
-interface HeaderProps {
-  type: "home-page" | "landing-page";
+interface HeaderProps {//check the Headers folder I divided the headers into 2 types
+  type: "home-page" | "landing-page"; 
   className?: string;
   hasCombo?: boolean;
   buttonDivClassName?: string;

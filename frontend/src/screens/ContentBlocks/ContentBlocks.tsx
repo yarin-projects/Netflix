@@ -1,4 +1,3 @@
-import React from "react";
 import { Logo } from "../../components/Logo";
 import { Blocks } from "./sections/Blocks";
 import { FaqQuestions } from "./sections/FaqQuestions";
