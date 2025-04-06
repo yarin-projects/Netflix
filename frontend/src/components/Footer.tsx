@@ -1,7 +1,7 @@
 import TypographyFooter from "./Typography/TypographyFooter";
 
 interface Props {
-  type: "home-page" | "authentication-page" | "landing-page";
+  type: "home-page" | "authentication-page" | "landing-page"; //check the Footers folder I divided the footers into 2 types
   className: any;
   href: string;
   divClassName?: any;

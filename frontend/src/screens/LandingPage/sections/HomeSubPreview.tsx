@@ -9,7 +9,6 @@ export const HomeSubPreview = (): JSX.Element => {
           alt="Element"
           src="https://c.animaapp.com/m8zprqm5u99XUd/img/8468553-1.png"
         />
-
         <div className="inline-flex flex-col items-start gap-2 relative flex-[0_0_auto]">
           <div className="inline-flex flex-col items-start gap-1 relative flex-[0_0_auto]">
             <p className="relative w-fit mt-[-1.00px] font-medium-headline2 font-[number:var(--medium-headline2-font-weight)] text-primarywhite text-[length:var(--medium-headline2-font-size)] tracking-[var(--medium-headline2-letter-spacing)] leading-[var(--medium-headline2-line-height)] whitespace-nowrap [font-style:var(--medium-headline2-font-style)]">
@@ -20,20 +19,19 @@ export const HomeSubPreview = (): JSX.Element => {
               Get the Standard with ads plan.
             </p>
           </div>
-
           <div className="inline-flex items-center gap-4 relative flex-[0_0_auto]">
             <div className="inline-flex flex-col items-start gap-px relative flex-[0_0_auto]">
-              <div className="relative w-fit mt-[-1.00px] font-medium-body font-[number:var(--medium-body-font-weight)] text-secondaryblue-200 text-[length:var(--medium-body-font-size)] tracking-[var(--medium-body-letter-spacing)] leading-[var(--medium-body-line-height)] whitespace-nowrap [font-style:var(--medium-body-font-style)]">
+              <div className="relative w-fit mt-[-1.00px] font-medium-body font-[number:var(--medium-body-font-weight)]
+               text-secondaryblue-200 text-[length:var(--medium-body-font-size)] tracking-[var(--medium-body-letter-spacing)]
+                leading-[var(--medium-body-line-height)] whitespace-nowrap [font-style:var(--medium-body-font-style)]">
                 Learn More
               </div>
-
               <img
                 className="absolute w-[85px] h-px top-[19px] left-0 object-cover"
                 alt="Line"
                 src="https://c.animaapp.com/m8zprqm5u99XUd/img/line-4.svg"
               />
             </div>
-
             <IconMediumArrowleft className="!relative !w-[11.24px] !h-[19.07px] !mr-[-1.55px]" />
           </div>
         </div>
