@@ -6,7 +6,6 @@ import { SubscriptionPlan } from '../enums/subscription-plan.enum';
   tableName: TOKENS.sql.table.subscriptions,
   modelName: TOKENS.sql.model.subscription,
   timestamps: true,
-  underscored: true,
 })
 export class Subscription extends Model {
   @Column({
@@ -16,13 +15,13 @@ export class Subscription extends Model {
     allowNull: false,
     unique: true,
   })
-  subscription_id!: string;
+  subscriptionId!: string;
 
   @Column({
     type: DataType.CHAR(36),
     allowNull: false,
   })
-  user_id!: string;
+  userId!: string;
 
   @Column({
     type: DataType.ENUM(...Object.values(SubscriptionPlan)),
@@ -34,16 +33,16 @@ export class Subscription extends Model {
     type: DataType.DATE,
     allowNull: false,
   })
-  start_date!: Date;
+  startDate!: Date;
 
   @Column({
     type: DataType.DATE,
     allowNull: false,
   })
-  end_date!: Date;
+  endDate!: Date;
 
   get active(): boolean {
-    if (!this.end_date) return false;
-    return new Date() < new Date(this.end_date);
+    if (!this.endDate) return false;
+    return new Date() < new Date(this.endDate);
   }
 }

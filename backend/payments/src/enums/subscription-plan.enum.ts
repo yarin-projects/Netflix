@@ -1,5 +1,6 @@
 export enum SubscriptionPlan {
-  BASIC = 'Basic',
-  STANDARD = 'Standard',
-  PREMIUM = 'Premium',
+  None = 'None',
+  Basic = 'Basic',
+  Standard = 'Standard',
+  Premium = 'Premium',
 }

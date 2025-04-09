@@ -5,7 +5,6 @@ import { TOKENS } from '../utils/tokens.utils';
   tableName: TOKENS.sql.table.users,
   modelName: TOKENS.sql.model.user,
   timestamps: true,
-  underscored: true,
 })
 export class User extends Model {
   @Column({
@@ -15,7 +14,7 @@ export class User extends Model {
     allowNull: false,
     unique: true,
   })
-  user_id!: string;
+  userId!: string;
 
   @Column({
     type: DataType.STRING,
