@@ -1,6 +1,6 @@
 import { inject, injectable } from 'inversify';
 import { IAuthService } from '../interfaces/auth-service.interface';
-import { JwtTokensResponse } from '../dtos/jwt-tokens-response.dto';
+import { JwtTokens } from '../dtos/jwt-tokens-response.dto';
 import { IRefreshToken } from '../interfaces/refresh-token.interface';
 import { TOKENS } from '../utils/tokens.utils';
 import { IAuthRepository } from '../interfaces/auth-repository.interface';
@@ -8,7 +8,7 @@ import { IAuthRepository } from '../interfaces/auth-repository.interface';
 @injectable()
 export class AuthService implements IAuthService {
   constructor(@inject(TOKENS.injections.iAuthRepository) private authRepository: IAuthRepository) {}
-  async refreshJwtTokens(refreshToken: IRefreshToken): Promise<JwtTokensResponse> {
+  async refreshJwtTokens(refreshToken: IRefreshToken): Promise<JwtTokens> {
     throw new Error('Method not implemented.');
   }
 }

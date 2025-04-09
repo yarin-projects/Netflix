@@ -8,7 +8,6 @@ import { logger } from './tokens/logger.tokens';
 import { messages } from './tokens/messages.tokens';
 import { routes } from './tokens/routes.tokens';
 import { sql } from './tokens/sql.tokens';
-import { subscriptionPlan } from './tokens/subscrption-plan.token';
 import { tests } from './tokens/tests.tokens';
 import { validations } from './tokens/validations.tokens';
 
@@ -16,12 +15,12 @@ const port = Number(process.env.PORT) || 3001;
 
 export const TOKENS = Object.freeze({
   emptyString: '',
+  bcryptRounds: 10,
   port,
   allowedOrigins,
   validations,
   sql,
   logger,
-  subscriptionPlan,
   jwt,
   httpStatus,
   httpsOptions,
