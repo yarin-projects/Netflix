@@ -6,5 +6,6 @@ export const errors = {
   jwtVariablesMissing:
     'JWT_KEY, JWT_ACCESS_TOKEN, JWT_REFRESH_TOKEN, JWT_ACCESS_TOKEN_EXPIRATION, JWT_REFRESH_TOKEN_EXPIRATION are required',
   internalRouteSecretMissing: 'INTERNAL_ROUTE_SECRET is not defined',
+  internalRouteSecretInvalid: 'Provided INTERNAL_ROUTE_SECRET is invalid',
   internalServerError,
 };
