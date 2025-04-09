@@ -1,6 +1,7 @@
 import { JwtTokens } from '../dtos/jwt-tokens.dto';
-import { IRefreshToken } from './refresh-token.interface';
+import { refreshTokenDto } from '../dtos/refresh-token.dto';
+import { IUserPayload } from './user-payload.interface';
 
 export interface IAuthService {
-  refreshJwtTokens(refreshToken: IRefreshToken): Promise<JwtTokens>;
+  refreshJwtTokens(incomingTokenData: refreshTokenDto, payload: IUserPayload): Promise<JwtTokens>;
 }

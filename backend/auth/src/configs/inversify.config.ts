@@ -8,6 +8,8 @@ import { IInternalAuthService } from '../interfaces/internal-auth-service.interf
 import { InternalAuthService } from '../services/internal-auth.service';
 import { IAuthRepository } from '../interfaces/auth-repository.interface';
 import { AuthRepository } from '../repositories/auth.repository';
+import { ITokenHelperService } from '../interfaces/token-helper-service.interface';
+import { TokenHelperService } from '../services/token-helper.service';
 
 const container = new Container();
 
@@ -16,6 +18,7 @@ container.bind<InternalAuthController>(TOKENS.injections.internalAuthController)
 
 container.bind<IAuthService>(TOKENS.injections.iAuthService).to(AuthService);
 container.bind<IInternalAuthService>(TOKENS.injections.iInternalAuthService).to(InternalAuthService);
+container.bind<ITokenHelperService>(TOKENS.injections.iTokenHelperService).to(TokenHelperService);
 
 container.bind<IAuthRepository>(TOKENS.injections.iAuthRepository).to(AuthRepository);
 

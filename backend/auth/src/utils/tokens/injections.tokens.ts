@@ -4,4 +4,6 @@ export const injections = {
   authController: 'AuthController',
   iInternalAuthService: 'IInternalAuthService',
   internalAuthController: 'InternalAuthController',
+  iTokenHelperService: 'ITokenHelperService',
+  tokenHelperService: 'TokenHelperService',
 };

@@ -30,4 +30,11 @@ export const validations = {
       message: 'Invalid secret',
     },
   },
+  subscriptionPlan: {
+    message: 'Subscription plan is required',
+  },
+  refreshToken: {
+    min: 1,
+    message: 'Refresh token is required',
+  },
 };

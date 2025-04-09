@@ -15,7 +15,6 @@ const port = Number(process.env.PORT) || 3001;
 
 export const TOKENS = Object.freeze({
   emptyString: '',
-  bcryptRounds: 10,
   port,
   allowedOrigins,
   validations,

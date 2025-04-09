@@ -8,4 +8,7 @@ export const errors = {
   internalRouteSecretMissing: 'INTERNAL_ROUTE_SECRET is not defined',
   internalRouteSecretInvalid: 'Provided INTERNAL_ROUTE_SECRET is invalid',
   internalServerError,
+  invalidRefreshToken: 'Invalid refresh token',
+  refreshTokenUsed: 'Refresh token was already used for user: ',
+  invalidTokenMetaData: 'Invalid token meta data for user: ',
 };
