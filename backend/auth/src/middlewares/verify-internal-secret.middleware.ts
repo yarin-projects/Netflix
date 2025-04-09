@@ -19,3 +19,5 @@ export const verifyInternalSecret = (req: Request, res: Response, next: NextFunc
 
   next();
 };
+
+export const internalSecretLength = internalSecret?.length ?? 0;

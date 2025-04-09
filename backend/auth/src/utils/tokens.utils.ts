@@ -10,6 +10,7 @@ import { routes } from './tokens/routes.tokens';
 import { sql } from './tokens/sql.tokens';
 import { subscriptionPlan } from './tokens/subscrption-plan.token';
 import { tests } from './tokens/tests.tokens';
+import { validations } from './tokens/validations.tokens';
 
 const port = Number(process.env.PORT) || 3001;
 
@@ -17,6 +18,7 @@ export const TOKENS = Object.freeze({
   emptyString: '',
   port,
   allowedOrigins,
+  validations,
   sql,
   logger,
   subscriptionPlan,

@@ -36,7 +36,7 @@ export class RefreshToken extends Model {
   ip_address?: string;
 
   @Column({
-    type: DataType.STRING,
+    type: DataType.STRING(TOKENS.validations.userAgent.max.value),
     allowNull: true,
   })
   user_agent?: string;
