@@ -1,7 +1,7 @@
 export interface IRefreshToken {
   token: string;
-  user_id: string;
+  userId: string;
   used: boolean;
-  ip_address?: string;
-  user_agent?: string;
+  ipAddress?: string;
+  userAgent?: string;
 }

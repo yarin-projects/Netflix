@@ -1,6 +1,6 @@
 import { GenerateTokensRequestDto } from '../dtos/generate-tokens-request.dto';
-import { JwtTokens } from '../dtos/jwt-tokens-response.dto';
+import { JwtTokens } from '../dtos/jwt-tokens.dto';
 
 export interface IInternalAuthService {
-  generateTokens(tokenData: GenerateTokensRequestDto): Promise<JwtTokens>;
+  generateTokens(requestData: GenerateTokensRequestDto): Promise<JwtTokens>;
 }

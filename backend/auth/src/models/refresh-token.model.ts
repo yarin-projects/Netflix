@@ -5,7 +5,6 @@ import { TOKENS } from '../utils/tokens.utils';
   tableName: TOKENS.sql.table.refreshTokens,
   modelName: TOKENS.sql.model.refreshToken,
   timestamps: true,
-  underscored: true,
 })
 export class RefreshToken extends Model {
   @Column({
@@ -15,7 +14,7 @@ export class RefreshToken extends Model {
     allowNull: false,
     unique: true,
   })
-  token_id!: string;
+  tokenId!: string;
 
   @Column({
     type: DataType.STRING,
@@ -27,19 +26,19 @@ export class RefreshToken extends Model {
     type: DataType.CHAR(36),
     allowNull: false,
   })
-  user_id!: string;
+  userId!: string;
 
   @Column({
     type: DataType.STRING,
     allowNull: true,
   })
-  ip_address?: string;
+  ipAddress?: string;
 
   @Column({
     type: DataType.STRING(TOKENS.validations.userAgent.max.value),
     allowNull: true,
   })
-  user_agent?: string;
+  userAgent?: string;
 
   @Column({
     type: DataType.BOOLEAN,

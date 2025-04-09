@@ -20,17 +20,19 @@ const decrypt = (encrypted: string): string => {
 };
 
 export const encryptPayload = (payload: IUserPayload): IUserPayload => {
+  const { userId, email, subscriptionPlan } = payload;
   return {
-    user_id: encrypt(payload.user_id),
-    email: encrypt(payload.email),
-    subscription_plan: payload.subscription_plan,
+    userId: encrypt(userId),
+    email: encrypt(email),
+    subscriptionPlan,
   };
 };
 
 export const decryptPayload = (payload: IUserPayload): IUserPayload => {
+  const { userId, email, subscriptionPlan } = payload;
   return {
-    user_id: decrypt(payload.user_id),
-    email: decrypt(payload.email),
-    subscription_plan: payload.subscription_plan,
+    userId: decrypt(userId),
+    email: decrypt(email),
+    subscriptionPlan,
   };
 };

@@ -3,7 +3,7 @@ import { TOKENS } from './tokens.utils';
 import { decryptPayload, encryptPayload } from './aes.utils';
 import { JwtExpiry } from '../types/jwt-expiry.type';
 import { IUserPayload } from '../interfaces/user-payload.interface';
-import { JwtTokens } from '../dtos/jwt-tokens-response.dto';
+import { JwtTokens } from '../dtos/jwt-tokens.dto';
 
 const accessTokenExpiry: JwtExpiry = TOKENS.jwt.accessTokenExpiry as JwtExpiry;
 const refreshTokenExpiry: JwtExpiry = TOKENS.jwt.refreshTokenExpiry as JwtExpiry;

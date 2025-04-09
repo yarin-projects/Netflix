@@ -1,4 +1,4 @@
-import { JwtTokens } from '../dtos/jwt-tokens-response.dto';
+import { JwtTokens } from '../dtos/jwt-tokens.dto';
 import { IRefreshToken } from './refresh-token.interface';
 
 export interface IAuthService {

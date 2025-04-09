@@ -1,6 +1,6 @@
 import { inject, injectable } from 'inversify';
 import { IAuthService } from '../interfaces/auth-service.interface';
-import { JwtTokens } from '../dtos/jwt-tokens-response.dto';
+import { JwtTokens } from '../dtos/jwt-tokens.dto';
 import { IRefreshToken } from '../interfaces/refresh-token.interface';
 import { TOKENS } from '../utils/tokens.utils';
 import { IAuthRepository } from '../interfaces/auth-repository.interface';
