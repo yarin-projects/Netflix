@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 const {
   JWT_ACCESS_TOKEN,
   JWT_REFRESH_TOKEN,

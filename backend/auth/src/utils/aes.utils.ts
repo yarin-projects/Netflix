@@ -1,6 +1,5 @@
 import crypto from 'crypto';
 import { IUserPayload } from '../interfaces/user-payload.interface';
-import 'dotenv/config';
 
 const aesKey = Buffer.from(process.env.AES_KEY!, 'hex');
 const iv = Buffer.from(process.env.AES_IV!, 'hex');
