@@ -1,4 +1,4 @@
-import { internalSecretLength } from '../../middlewares/verify-internal-secret.middleware';
+import { internalSecretLength } from "../env-variables-check.utils";
 
 export const validations = {
   userId: {
