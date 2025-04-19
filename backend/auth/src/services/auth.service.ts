@@ -19,7 +19,7 @@ export class AuthService implements IAuthService {
     incomingTokenData: refreshTokenDto,
     payload: IUserPayload
   ): Promise<JwtTokens> {
-    const { refreshToken: rawIncomingToken, ipAddress, userAgent } = incomingTokenData;
+    const { refreshToken: rawIncomingToken, userAgent } = incomingTokenData;
     const { userId } = payload;
 
     const encryptedTokenToFind = encrypt(rawIncomingToken);
@@ -33,7 +33,7 @@ export class AuthService implements IAuthService {
       logger.error(TOKENS.errors.refreshTokenUsed + userId);
       throw new Error(TOKENS.errors.refreshTokenUsed);
     }
-    if (ipAddress !== storedIpAddress || userAgent !== storedUserAgent) {
+    if (userAgent !== storedUserAgent) {
       logger.error(TOKENS.errors.invalidTokenMetaData + userId);
       await this.authRepository.markTokenUsed(refreshTokenRecord);
       throw new Error(TOKENS.errors.invalidRefreshToken);
