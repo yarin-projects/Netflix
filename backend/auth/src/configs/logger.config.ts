@@ -18,7 +18,7 @@ export const logger = winston.createLogger({
   level: TOKENS.logger.config.levels.info,
   format: logFormatter,
   transports: [
-    new winston.transports.Console({ format: consoleLogFormatter }),
+    // new winston.transports.Console({ format: consoleLogFormatter }),
     new winston.transports.File({
       filename: relativeLogsPath + TOKENS.logger.config.combinedLogName,
     }),

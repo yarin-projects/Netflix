@@ -1,5 +1,4 @@
 import { SubscriptionPlan } from '../../enums/subscription-plan.enum';
-import { internalSecret } from '../env-variables-check.utils';
 import { routes } from './routes.tokens';
 
 const validRefreshToken = 'some-valid-looking-jwt-refresh-token-string';
@@ -7,16 +6,18 @@ const validUUID = 'a0a0a0a0-a0a0-a0a0-a0a0-a0a0a0a0a0a0';
 const validEmail = 'test@example.com';
 const validIp = '198.51.100.1';
 const validUserAgent = 'Mozilla/5.0 Jest Test Agent';
-const validSecret = internalSecret;
+const validSecret = process.env.INTERNAL_ROUTE_SECRET!;
 
 const invalidUUID = 'invalid-uuid';
 const invalidEmail = 'invalid-email';
 const invalidIp = 'invalid-ip';
+const invalidSecret = 'invalid-secret';
 
 const refreshRoute: string = routes.authBasePath + routes.refreshTokens;
 const meRoute: string = routes.authBasePath + routes.me;
 const generateRoute: string = routes.internalBasePath + routes.generateTokens;
 
+export const secretLength = validSecret?.length ?? 0;
 export const tests = {
   data: {
     valid: {
@@ -90,6 +91,14 @@ export const tests = {
           secret: validSecret,
           subscriptionPlan: SubscriptionPlan.Basic,
         },
+        generateRequest_InvalidSecret: {
+          userId: validUUID,
+          email: validEmail,
+          ipAddress: validIp,
+          userAgent: validUserAgent,
+          secret: invalidSecret,
+          subscriptionPlan: SubscriptionPlan.Basic,
+        },
       },
     },
   },
@@ -122,10 +131,11 @@ export const tests = {
       generateTokens: {
         title: 'Generate-Tokens (POST - ' + generateRoute + ')',
         cases: {
-          validRequest: 'Should return status code 200 if user is authenticated',
+          validRequest: 'Should return status code 200 if tokens are generated successfully',
           missingUserId: 'Should return status code 400 if user id is missing',
           missingSecret: 'Should return status code 400 if secret is missing',
           invalidEmail: 'Should return status code 400 if email is invalid',
+          invalidSecret: 'Should return status code 400 if secret is invalid',
         },
       },
     },

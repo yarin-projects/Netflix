@@ -17,8 +17,6 @@ const {
 } = process.env;
 
 export const internalSecret = INTERNAL_ROUTE_SECRET;
-export const internalSecretLength = internalSecret?.length ?? 0;
-
 export const checkEnviormentVariables = () => {
   if (
     !JWT_KEY ||
