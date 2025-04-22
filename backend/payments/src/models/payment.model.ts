@@ -9,7 +9,6 @@ import { TOKENS } from '../utils/tokens.utils';
   tableName: TOKENS.sql.table.payments,
   modelName: TOKENS.sql.model.payment,
   timestamps: true,
-  underscored: true,
 })
 export class Payment extends Model {
   @Column({
@@ -18,26 +17,26 @@ export class Payment extends Model {
     primaryKey: true,
     allowNull: false,
   })
-  payment_id!: string;
+  paymentId!: string;
 
   @Column({
     type: DataType.CHAR(36),
     allowNull: false,
   })
-  user_id!: string;
+  userId!: string;
 
   @Column({
     type: DataType.ENUM(...Object.values(SubscriptionPlan)),
     allowNull: false,
   })
-  subscription_plan!: SubscriptionPlan;
+  subscriptionPlan!: SubscriptionPlan;
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
     unique: true,
   })
-  transaction_id!: string;
+  transactionId!: string;
 
   @Column({
     type: DataType.FLOAT,
@@ -55,7 +54,7 @@ export class Payment extends Model {
     type: DataType.DATE,
     allowNull: false,
   })
-  payment_date!: Date;
+  paymentDate!: Date;
 
   @Column({
     type: DataType.ENUM(...Object.values(PaymentStatus)),
@@ -67,17 +66,17 @@ export class Payment extends Model {
     type: DataType.ENUM(...Object.values(PaymentMethod)),
     allowNull: false,
   })
-  payment_method!: PaymentMethod;
+  paymentMethod!: PaymentMethod;
 
   @Column({
     type: DataType.JSON,
     allowNull: true,
   })
-  billing_info?: object;
+  billingInfo?: object;
 
   @Column({
     type: DataType.STRING,
     allowNull: true,
   })
-  receipt_url?: string;
+  receiptUrl?: string;
 }

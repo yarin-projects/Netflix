@@ -5,7 +5,6 @@ import { TOKENS } from '../utils/tokens.utils';
   tableName: TOKENS.sql.table.profiles,
   modelName: TOKENS.sql.model.profile,
   timestamps: true,
-  underscored: true,
 })
 export class Profile extends Model {
   @Column({
@@ -14,20 +13,20 @@ export class Profile extends Model {
     primaryKey: true,
     allowNull: false,
   })
-  profile_id!: string;
+  profileId!: string;
 
   @Column({
     type: DataType.CHAR(36),
     allowNull: false,
   })
-  user_id!: string;
+  userId!: string;
 
   @Column({
     type: DataType.BOOLEAN,
     allowNull: false,
     defaultValue: false,
   })
-  primary_profile!: boolean;
+  primaryProfile!: boolean;
 
   @Column({
     type: DataType.STRING,
@@ -47,18 +46,18 @@ export class Profile extends Model {
     allowNull: true,
     defaultValue: [],
   })
-  watch_history!: number[];
+  watchHistory!: number[];
 
   @Column({
     type: DataType.BOOLEAN,
     allowNull: false,
     defaultValue: false,
   })
-  is_adult!: boolean;
+  isAdult!: boolean;
 
   @Column({
     type: DataType.STRING,
     allowNull: false,
   })
-  avatar_path!: string;
+  avatarPath!: string;
 }

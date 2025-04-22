@@ -1,4 +1,4 @@
 export interface IUserPayload {
-  user_id: string;
+  userId: string;
   email: string;
 }
