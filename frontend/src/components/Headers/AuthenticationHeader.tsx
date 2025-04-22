@@ -1,8 +1,17 @@
 import { Logo } from '../Logo'
 import { Button } from '../Button'
 import { strings } from '../../strings/strings'
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 const AuthenticationHeader = () => {
+    
+    const navigate = useNavigate();
+
+    const moveToSignIn = async () => {
+        navigate('/');
+      }
+
   return (
     <div className="flex justify-between relative w-[1200px] items-start pt-6 pb-7 px-12 h-[92px] !left-[120px] !bg-transparent !top-0">
         <Logo className="!bg-[unset]" size="medium" type="word" />
@@ -19,7 +28,7 @@ const AuthenticationHeader = () => {
                     </div>
                     <img className="relative w-[7.79px] h-[3.75px]" alt="Polygon" />
                 </div>
-                <Button size="small" state="default" type="sign-in">{strings.login.signIn}</Button>
+                <Button size="small" state="default" type="sign-in" onClick={moveToSignIn}>{strings.login.signIn}</Button>
             </>
         </div>
     </div>

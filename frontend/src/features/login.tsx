@@ -3,9 +3,33 @@ import { TypeUsesignincodeWrapper } from '../components/TypeUsesignincodeWrapper
 import { Button } from '../components/Button'
 import { InputField } from '../components/InputField'
 import { strings } from '../strings/strings'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [emailOrPhone, setemailOrPhone] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSignIn = async () => {
+    try {
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ emailOrPhone, password }),
+      })
+      if (!res.ok) throw new Error('Invalid credentials')
+      const { token } = await res.json()
+  
+      // e.g. store JWT, then…
+      navigate('/home')
+    } catch (err: any) {
+      console.error(err)
+      alert(err.message) // or set an error message in state to display
+    }
+  }
+  
   return (
     <div className="flex flex-col w-[450px] h-[708px] items-start gap-3 px-[68px] py-12 absolute top-[92px] left-[495px] bg-transparentblack-60 rounded overflow-hidden">
       <div className="inline-flex flex-col items-start gap-5 relative flex-[0_0_auto]">
@@ -23,6 +47,8 @@ const Login = () => {
               type="email-or-phone"
               inputType="email"
               placeholder='Enter Email'
+              value = {emailOrPhone}
+              onChange={(e) => setemailOrPhone(e.target.value)}
             />
             <InputField
               className="!text-greygrey-50"
@@ -32,6 +58,8 @@ const Login = () => {
               type="password"
               inputType="password"
               placeholder='Enter Password'
+              value = {password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <Button
               className="!bg-primaryred"
@@ -39,6 +67,7 @@ const Login = () => {
               size="large"
               state="default"
               type="sign-in"
+              onClick={handleSignIn}
             >{strings.login.signIn}</Button>
             <div className="relative w-fit font-regular-body font-[number:var(--regular-body-font-weight)] text-transparent-white70 text-[length:var(--regular-body-font-size)] text-center tracking-[var(--regular-body-letter-spacing)] leading-[var(--regular-body-line-height)] [font-style:var(--regular-body-font-style)]">
               OR
@@ -73,13 +102,10 @@ const Login = () => {
               <span className="text-[#ffffffb2] leading-[0.1px]">
                 New to Netflix?
               </span>
-    
               <span className="text-black">&nbsp;</span>
-    
               <span className="[font-family:'Netflix_Sans-Medium',Helvetica] font-medium text-white leading-6">
                 Sign up{" "}
               </span>
-    
               <span className="font-medium-body font-[number:var(--medium-body-font-weight)] text-white leading-[var(--medium-body-line-height)] [font-style:var(--medium-body-font-style)] tracking-[var(--medium-body-letter-spacing)] text-[length:var(--medium-body-font-size)]">
                 now.
               </span>
@@ -91,7 +117,6 @@ const Login = () => {
               This page is protected by Google reCAPTCHA to ensure you’re
               not a bot.{" "}
             </span>
-    
             <span className="text-[#0071eb] leading-4">Learn more.</span>
           </p>
         </div>
@@ -99,6 +124,5 @@ const Login = () => {
     </div>
   )
 }
-
 export default Login
 

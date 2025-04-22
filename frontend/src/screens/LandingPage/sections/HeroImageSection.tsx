@@ -1,5 +1,6 @@
 import AuthenticationHeader from "../../../components/Headers/AuthenticationHeader";
 import { InserfieldEmail } from "../../../components/InserfieldEmail";
+import { TypeGetstartedWrapper } from "../../../components/TypeGetstartedWrapper";
 
 export const HeroImageSection = (): JSX.Element => {
   return (

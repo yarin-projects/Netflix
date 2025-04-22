@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { InputField } from "./InputField";
-import { TypeGetstartedWrapper } from "./TypeGetstartedWrapper";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   className: any;
@@ -7,15 +8,36 @@ interface Props {
   inputFieldDivClassName: any;
   typeGetstartedWrapperTypeGetstartedClassName: any;
   typeGetstartedWrapperDivClassName: any;
+  value?: string;
 }
 
 export const InserfieldEmail = ({
   className,
   divClassName,
   inputFieldDivClassName,
-  typeGetstartedWrapperTypeGetstartedClassName,
-  typeGetstartedWrapperDivClassName,
 }: Props): JSX.Element => {
+  
+  const [email, setEmail] = useState("")
+  const navigate = useNavigate()
+
+  const handleRegister = async () => {
+    try {
+      const res = await fetch('/api/auth/register', { //check if there is a funstion to check an email exist or not?
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      })
+      if (!res.ok) throw new Error('Invalid credentials')
+      const { token } = await res.json()
+  
+      // e.g. store JWT, then…
+      navigate('/home')
+    } catch (err: any) {
+      console.error(err)
+      alert(err.message) // or set an error message in state to display
+    }
+  }
+
   return (
     <div
       className={`inline-flex flex-col items-center gap-4 relative ${className}`}
@@ -32,13 +54,26 @@ export const InserfieldEmail = ({
           size="large"
           state="default"
           type="email"
+          value = {email}
+          onChange={(e) => setEmail(e.target.value)}
         />
-        <TypeGetstartedWrapper
-          className={typeGetstartedWrapperTypeGetstartedClassName}
-          divClassName={typeGetstartedWrapperDivClassName}
-          state="default"
-          type="get-started"
-        />
+
+        <button
+          className={`cursor-pointer all-[unset] box-border flex w-52 h-14 items-center gap-4 px-6 py-3 relative bg-[#e50814] rounded ${className}`}
+          onClick={handleRegister}
+        >
+          <div
+            className={`relative w-fit font-medium-title3 font-[number:var(--medium-title3-font-weight)] text-white text-[length:var(--medium-title3-font-size)] text-center tracking-[var(--medium-title3-letter-spacing)] leading-[var(--medium-title3-line-height)] whitespace-nowrap [font-style:var(--medium-title3-font-style)] ${divClassName}`}
+          >
+            Get Started
+          </div>
+    
+          <img
+            className="relative w-[10.34px] h-[17.55px]"
+            alt="Polygon"
+            src="https://c.animaapp.com/m8zprqm5u99XUd/img/polygon-3.svg"
+          />
+        </button>
       </div>
     </div>
   );

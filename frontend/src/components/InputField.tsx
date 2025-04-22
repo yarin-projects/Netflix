@@ -6,6 +6,8 @@ interface InputFieldProps {
   className: any;
   inputType?: string;
   placeholder?: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const InputField = ({size, type, state, sizeMediumTypeClassName, className, inputType}: InputFieldProps): JSX.Element => {
