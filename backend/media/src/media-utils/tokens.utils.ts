@@ -3,7 +3,7 @@ import { httpStatus } from './tokens/http-status-codes.tokens';
 import { injections } from './tokens/injections.tokens';
 import { messages } from './tokens/messages.tokens';
 import { routes } from './tokens/routes.tokens';
-import { tests } from './tokens/tests.token';
+import {tests} from './tokens/tests.tokens'
 
 export const TOKENS = {
   allowedOrigins: [
