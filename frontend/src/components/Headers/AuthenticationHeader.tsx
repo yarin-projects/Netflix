@@ -2,14 +2,13 @@ import { Logo } from '../Logo'
 import { Button } from '../Button'
 import { strings } from '../../strings/strings'
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 
 const AuthenticationHeader = () => {
     
     const navigate = useNavigate();
 
     const moveToSignIn = async () => {
-        navigate('/');
+        navigate('/signin');
       }
 
   return (

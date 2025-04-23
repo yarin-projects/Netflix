@@ -30,11 +30,12 @@ export const InserfieldEmail = ({
       if (!res.ok) throw new Error('Invalid credentials')
       const { token } = await res.json()
   
-      // e.g. store JWT, then…
-      navigate('/home')
+      // e.g. store JWT, then… if email is already registered, navigate to sign in page
+      // else navigate to sign up page
+      navigate('/signin')
     } catch (err: any) {
       console.error(err)
-      alert(err.message) // or set an error message in state to display
+      alert(err.message)
     }
   }
 

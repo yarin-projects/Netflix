@@ -8,8 +8,8 @@ createRoot(document.getElementById("app") as HTMLElement).render(
   <StrictMode>
     <Router>
       <Routes>
-        <Route path="/" element={<AuthenticationPage />} />
-        <Route path="/register" element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/signin" element={<AuthenticationPage />} />
         {/* <Route path="/signup" element={<SignUpPage />} />
         <Route path="/home" element={<HomePage />} /> */}
       </Routes>

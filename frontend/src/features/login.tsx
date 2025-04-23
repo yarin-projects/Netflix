@@ -22,7 +22,7 @@ const Login = () => {
       const { token } = await res.json()
       
       // e.g. store JWT, then…
-      navigate('/register')
+      navigate('/home')
     } catch (err: any) {
       console.error(err)
       alert(err.message)
