@@ -24,6 +24,7 @@ export class UserController {
       handleError(res, error);
     }
   }
+
   async login(req: Request, res: Response) {
     try {
       const data: AuthRequestDto = req.body;
@@ -39,6 +40,7 @@ export class UserController {
       handleError(res, error);
     }
   }
+  
   async logout(req: Request, res: Response) {
     clearCookies(res);
     res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.logoutSuccess });
