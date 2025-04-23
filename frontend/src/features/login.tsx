@@ -20,12 +20,12 @@ const Login = () => {
       })
       if (!res.ok) throw new Error('Invalid credentials')
       const { token } = await res.json()
-  
+      
       // e.g. store JWT, then…
-      navigate('/home')
+      navigate('/register')
     } catch (err: any) {
       console.error(err)
-      alert(err.message) // or set an error message in state to display
+      alert(err.message)
     }
   }
   

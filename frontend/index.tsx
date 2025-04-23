@@ -9,8 +9,10 @@ createRoot(document.getElementById("app") as HTMLElement).render(
     <Router>
       <Routes>
         <Route path="/" element={<AuthenticationPage />} />
-        <Route path="/home" element={<LandingPage />} />
+        <Route path="/register" element={<LandingPage />} />
+        {/* <Route path="/signup" element={<SignUpPage />} />
+        <Route path="/home" element={<HomePage />} /> */}
       </Routes>
     </Router>
-  </StrictMode>,
+  </StrictMode>
 );
