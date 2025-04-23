@@ -6,7 +6,6 @@ import { strings } from '../strings/strings'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
-
 const Login = () => {
   const navigate = useNavigate();
   const [emailOrPhone, setemailOrPhone] = useState("");
@@ -14,7 +13,7 @@ const Login = () => {
 
   const handleSignIn = async () => {
     try {
-      const res = await fetch('/api/auth/login', {
+      const res = await fetch('/api/users/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ emailOrPhone, password }),

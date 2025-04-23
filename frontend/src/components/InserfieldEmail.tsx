@@ -20,9 +20,9 @@ export const InserfieldEmail = ({
   const [email, setEmail] = useState("")
   const navigate = useNavigate()
 
-  const handleRegister = async () => {
+  const handleRegister = async () => { //check if there is a function to check an email exist or not?
     try {
-      const res = await fetch('/api/auth/register', { //check if there is a funstion to check an email exist or not?
+      const res = await fetch('/api/auth/register', { 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
