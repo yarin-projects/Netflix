@@ -22,17 +22,19 @@ export const InserfieldEmail = ({
 
   const handleRegister = async () => { //check if there is a function to check an email exist or not?
     try {
-      const res = await fetch('/api/auth/register', { 
+      const res = await fetch('/api/users/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
       })
-      if (!res.ok) throw new Error('Invalid credentials')
+      if (!res.ok) {
+        navigate('/signin', { state: { email } }) 
+      }
       const { token } = await res.json()
   
       // e.g. store JWT, then… if email is already registered, navigate to sign in page
       // else navigate to sign up page
-      navigate('/signin')
+      navigate('/signin', { state: { email } })
     } catch (err: any) {
       console.error(err)
       alert(err.message)

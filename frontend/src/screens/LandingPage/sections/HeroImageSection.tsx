@@ -12,7 +12,10 @@ export const HeroImageSection = (): JSX.Element => {
         <AuthenticationHeader></AuthenticationHeader>
         <div className="inline-flex flex-col items-center gap-6 absolute top-[280px] left-[277px]">
           <div className="inline-flex flex-col items-center gap-4 relative flex-[0_0_auto]">
-            <p className="relative w-fit mt-[-1.00px] font-bold-title1 font-[number:var(--bold-title1-font-weight)] text-primarywhite text-[length:var(--bold-title1-font-size)] text-center tracking-[var(--bold-title1-letter-spacing)] leading-[var(--bold-title1-line-height)] whitespace-nowrap [font-style:var(--bold-title1-font-style)]">
+            <p className="relative w-fit mt-[-1.00px] font-bold-title1 font-[number:var(--bold-title1-font-weight)]
+             text-primarywhite text-[length:var(--bold-title1-font-size)] text-center
+              tracking-[var(--bold-title1-letter-spacing)] leading-[var(--bold-title1-line-height)]
+               whitespace-nowrap [font-style:var(--bold-title1-font-style)]">
               Unlimited movies, TV shows, and more
             </p>
 

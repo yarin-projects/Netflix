@@ -8,9 +8,10 @@ interface InputFieldProps {
   placeholder?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  defaultValue?: string;
 }
 
-export const InputField = ({size, type, state, sizeMediumTypeClassName, className, inputType}: InputFieldProps): JSX.Element => {
+export const InputField = ({size, type, state, sizeMediumTypeClassName, className, inputType, defaultValue}: InputFieldProps): JSX.Element => {
   return (
     <input
       className={`border border-solid border-[#7f7f7f] w-[314px] pl-4 pr-6 py-2 h-14 rounded bg-[#00000080] 
@@ -18,7 +19,7 @@ export const InputField = ({size, type, state, sizeMediumTypeClassName, classNam
         text-[length:var(--medium-body-font-size)] text-[#bdbcbb] font-[number:var(--medium-body-font-weight)] 
         text-center whitespace-nowrap leading-[var(--medium-body-line-height)] ${className}`}
       placeholder={type === "email-or-phone" ? "Email or phone number" : type === "password" ? "Password" : undefined}
-      type={inputType}
+      type={inputType} defaultValue={defaultValue}
     />
   );
 };

@@ -3,13 +3,16 @@ import { TypeUsesignincodeWrapper } from '../components/TypeUsesignincodeWrapper
 import { Button } from '../components/Button'
 import { InputField } from '../components/InputField'
 import { strings } from '../strings/strings'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 const Login = () => {
   const navigate = useNavigate();
   const [emailOrPhone, setemailOrPhone] = useState("");
   const [password, setPassword] = useState("");
+
+  const location = useLocation();
+  const { email } = location.state || { email: '' }; // Get email from location state if available
 
   const handleSignIn = async () => {
     try {
@@ -18,7 +21,7 @@ const Login = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ emailOrPhone, password }),
       })
-      if (!res.ok) throw new Error('Invalid credentials')
+      if (!res.ok) {}
       const { token } = await res.json()
       
       // e.g. store JWT, then…
@@ -45,9 +48,9 @@ const Login = () => {
               state="default"
               type="email-or-phone"
               inputType="email"
-              placeholder='Enter Email'
               value = {emailOrPhone}
               onChange={(e) => setemailOrPhone(e.target.value)}
+              defaultValue={email} // Set default value to email from location state
             />
             <InputField
               className="!text-greygrey-50"
@@ -56,7 +59,6 @@ const Login = () => {
               state="default"
               type="password"
               inputType="password"
-              placeholder='Enter Password'
               value = {password}
               onChange={(e) => setPassword(e.target.value)}
             />

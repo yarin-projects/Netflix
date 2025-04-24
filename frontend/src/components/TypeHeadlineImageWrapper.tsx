@@ -17,21 +17,29 @@ export const TypeHeadlineImageWrapper = ({
 }: Props): JSX.Element => {
   return (
     <div
-      className={`w-[1440px] h-[558px] bg-black relative ${type === "image-headline" ? "border-[#232323]" : ""} ${type === "image-headline" ? "border-t-8" : ""} ${type === "image-headline" ? "[border-top-style:solid]" : ""}`}
+      className={`w-[1440px] h-[558px] bg-black relative ${type === "image-headline" ? "border-[#232323]" : ""}
+       ${type === "image-headline" ? "border-t-8" : ""} ${type === "image-headline" ? "[border-top-style:solid]" : ""}`}
     >
       <div className="w-[1104px] left-[168px] top-[72px] h-[410px] relative">
         <div
-          className={`flex-col items-start top-[125px] gap-4 absolute ${type === "image-headline" ? "w-[546px]" : ""} ${type === "image-headline" ? "flex" : "inline-flex"} ${type === "image-headline" ? "left-[558px]" : "left-0"}`}
+          className={`flex-col items-start top-[125px] gap-4 absolute ${type === "image-headline" ? "w-[546px]" : ""}
+           ${type === "image-headline" ? "flex" : "inline-flex"} ${type === "image-headline" ? "left-[558px]" : "left-0"}`}
         >
           <div
-            className={`font-bold-title1 mt-[-1.00px] tracking-[var(--bold-title1-letter-spacing)] text-[length:var(--bold-title1-font-size)] [font-style:var(--bold-title1-font-style)] text-white font-[number:var(--bold-title1-font-weight)] leading-[var(--bold-title1-line-height)] relative ${type === "image-headline" ? "w-[546px]" : "w-fit"} ${type === "headline-image" ? "whitespace-nowrap" : ""}`}
+            className={`font-bold-title1 mt-[-1.00px] tracking-[var(--bold-title1-letter-spacing)]
+               text-[length:var(--bold-title1-font-size)] [font-style:var(--bold-title1-font-style)]
+                text-white font-[number:var(--bold-title1-font-weight)] leading-[var(--bold-title1-line-height)]
+                 relative ${type === "image-headline" ? "w-[546px]" : "w-fit"}
+                  ${type === "headline-image" ? "whitespace-nowrap" : ""}`}
           >
             {type === "headline-image" && <>Enjoy on your TV</>}
 
             {type === "image-headline" && <>Watch everywhere</>}
           </div>
 
-          <div className="font-regular-title2 w-fit tracking-[var(--regular-title2-letter-spacing)] [font-style:var(--regular-title2-font-style)] text-[length:var(--regular-title2-font-size)] text-white font-[number:var(--regular-title2-font-weight)] leading-[var(--regular-title2-line-height)] relative">
+          <div className="font-regular-title2 w-fit tracking-[var(--regular-title2-letter-spacing)]
+           [font-style:var(--regular-title2-font-style)] text-[length:var(--regular-title2-font-size)]
+            text-white font-[number:var(--regular-title2-font-weight)] leading-[var(--regular-title2-line-height)] relative">
             {type === "headline-image" && (
               <p>
                 Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV,
