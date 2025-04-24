@@ -8,7 +8,7 @@ export const tests = {
       getAllMovies: {
         title: 'get all movies',
         cases: {
-          success: 'Should return status code 201 if return all the movies in successfully',
+          success: 'Should return status code 200 if return all the movies in successfully',
           notFound: 'Should return status code 400 if it doesnt return all the movies',
         },
       },

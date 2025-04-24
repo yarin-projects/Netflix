@@ -33,6 +33,7 @@ export class MediaController {
       handleError(res, error);
     }
   }
+  
   async GetAllMedia(req: Request, res: Response) {
     try {
       const allMedia = await this.mediaService.GetAllMedia();

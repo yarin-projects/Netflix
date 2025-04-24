@@ -9,7 +9,7 @@ describe(TOKENS.tests.suites.mediaController.title, () => {
       TOKENS.tests.suites.mediaController.getAllMovies.cases.success,
       async () => {
         const response = await request(app).get(
-          TOKENS.routes.getAllMovies
+          `${TOKENS.routes.mediaBasePath}/${TOKENS.routes.getAllMovies}`
         );
 
         expect(response.status).toBe(TOKENS.httpStatus.OK);
@@ -23,7 +23,7 @@ describe(TOKENS.tests.suites.mediaController.title, () => {
       async () => {
         // assuming you clear your test DB or mock no-movies
         const response = await request(app).get(
-          TOKENS.routes.getAllMovies
+          `${TOKENS.routes.mediaBasePath}/${TOKENS.routes.getAllMovies}`
         );
 
         expect(response.status).toBe(TOKENS.httpStatus.BAD_REQUEST);
@@ -37,7 +37,7 @@ describe(TOKENS.tests.suites.mediaController.title, () => {
       TOKENS.tests.suites.mediaController.getAllTVs.cases.success,
       async () => {
         const response = await request(app).get(
-          TOKENS.routes.GetAllTVs
+          `${TOKENS.routes.mediaBasePath}/${TOKENS.routes.GetAllTVs}`
         );
 
         expect(response.status).toBe(TOKENS.httpStatus.OK);
@@ -50,7 +50,7 @@ describe(TOKENS.tests.suites.mediaController.title, () => {
       TOKENS.tests.suites.mediaController.getAllTVs.cases.notFound,
       async () => {
         const response = await request(app).get(
-          TOKENS.routes.GetAllTVs
+          `${TOKENS.routes.mediaBasePath}/${TOKENS.routes.GetAllTVs}`
         );
 
         expect(response.status).toBe(TOKENS.httpStatus.BAD_REQUEST);
@@ -64,7 +64,7 @@ describe(TOKENS.tests.suites.mediaController.title, () => {
       TOKENS.tests.suites.mediaController.getAllMedia.cases.success,
       async () => {
         const response = await request(app).get(
-          TOKENS.routes.GetAllMedia
+          `${TOKENS.routes.mediaBasePath}/${TOKENS.routes.GetAllMedia}`
         );
 
         expect(response.status).toBe(TOKENS.httpStatus.OK);
@@ -77,7 +77,7 @@ describe(TOKENS.tests.suites.mediaController.title, () => {
       TOKENS.tests.suites.mediaController.getAllMedia.cases.notFound,
       async () => {
         const response = await request(app).get(
-          TOKENS.routes.GetAllMedia
+          `${TOKENS.routes.mediaBasePath}/${TOKENS.routes.GetAllMedia}`
         );
 
         expect(response.status).toBe(TOKENS.httpStatus.BAD_REQUEST);
@@ -91,7 +91,7 @@ describe(TOKENS.tests.suites.mediaController.title, () => {
       TOKENS.tests.suites.mediaController.Search.cases.success,
       async () => {
         const response = await request(app)
-          .get(TOKENS.routes.Search)
+          .get(`${TOKENS.routes.mediaBasePath}/${TOKENS.routes.Search}`)
           .query({ q: TOKENS.tests.suites.mediaController.Search.data.searchQuery });
 
         expect(response.status).toBe(TOKENS.httpStatus.OK);
@@ -104,7 +104,7 @@ describe(TOKENS.tests.suites.mediaController.title, () => {
       TOKENS.tests.suites.mediaController.Search.cases.notFound,
       async () => {
         const response = await request(app)
-          .get(TOKENS.routes.Search)
+          .get(`${TOKENS.routes.mediaBasePath}/${TOKENS.routes.Search}`)
           .query({ q: 'nothing-will-match-this' });
 
         expect(response.status).toBe(TOKENS.httpStatus.BAD_REQUEST);
@@ -119,7 +119,7 @@ describe(TOKENS.tests.suites.mediaController.title, () => {
       async () => {
         const id = TOKENS.tests.suites.mediaController.GetMovieById.data.existingMovieId;
         const response = await request(app).get(
-          `${TOKENS.routes.GetMovieById}/${id}`
+          `${TOKENS.routes.mediaBasePath}/${TOKENS.routes.GetMovieById}/${id}`
         );
 
         expect(response.status).toBe(TOKENS.httpStatus.OK);
@@ -132,7 +132,7 @@ describe(TOKENS.tests.suites.mediaController.title, () => {
       TOKENS.tests.suites.mediaController.GetMovieById.cases.notFound,
       async () => {
         const response = await request(app).get(
-          `${TOKENS.routes.GetMovieById}/nonexistent`
+          `${TOKENS.routes.mediaBasePath}/${TOKENS.routes.GetMovieById}/nonexistent`
         );
 
         expect(response.status).toBe(TOKENS.httpStatus.BAD_REQUEST);
@@ -147,7 +147,7 @@ describe(TOKENS.tests.suites.mediaController.title, () => {
       async () => {
         const id = TOKENS.tests.suites.mediaController.GetTVById.data.existingTVId;
         const response = await request(app)
-          .get(`${TOKENS.routes.GetTVById}/${id}`)
+          .get(`${TOKENS.routes.mediaBasePath}/${TOKENS.routes.GetTVById}/${id}`)
           .send({ id });
 
         expect(response.status).toBe(TOKENS.httpStatus.OK);
@@ -160,7 +160,7 @@ describe(TOKENS.tests.suites.mediaController.title, () => {
       TOKENS.tests.suites.mediaController.GetTVById.cases.notFound,
       async () => {
         const response = await request(app)
-          .get(`${TOKENS.routes.GetTVById}/nope`)
+          .get(`${TOKENS.routes.mediaBasePath}/${TOKENS.routes.GetTVById}/nope`)
           .send({ id: 'nope' });
 
         expect(response.status).toBe(TOKENS.httpStatus.BAD_REQUEST);
