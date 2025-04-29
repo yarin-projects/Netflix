@@ -1,5 +1,8 @@
-import { Table, Column, DataType, Model } from 'sequelize-typescript';
+import { Table, Column, DataType, Model, BelongsToMany, HasMany } from 'sequelize-typescript';
 import { TOKENS } from '../utils/tokens.utils';
+import { ProfileFavorite } from './profile-favorite.model';
+import { ProfileWatchHistory } from './profile-watch-history.model';
+import { Media } from './media.model';
 
 @Table({
   tableName: TOKENS.sql.table.profiles,
@@ -35,20 +38,6 @@ export class Profile extends Model {
   name!: string;
 
   @Column({
-    type: DataType.ARRAY(DataType.INTEGER),
-    allowNull: true,
-    defaultValue: [],
-  })
-  favorites!: number[];
-
-  @Column({
-    type: DataType.ARRAY(DataType.INTEGER),
-    allowNull: true,
-    defaultValue: [],
-  })
-  watchHistory!: number[];
-
-  @Column({
     type: DataType.BOOLEAN,
     allowNull: false,
     defaultValue: false,
@@ -60,4 +49,16 @@ export class Profile extends Model {
     allowNull: false,
   })
   avatarPath!: string;
+
+  @BelongsToMany(() => Media, () => ProfileFavorite)
+  favoriteMedia?: Media[];
+
+  @BelongsToMany(() => Media, () => ProfileWatchHistory)
+  watchedMedia?: (Media & { ProfileWatchHistory: ProfileWatchHistory })[];
+
+  @HasMany(() => ProfileFavorite)
+  favoriteEntries?: ProfileFavorite[];
+
+  @HasMany(() => ProfileWatchHistory)
+  historyEntries?: ProfileWatchHistory[];
 }
