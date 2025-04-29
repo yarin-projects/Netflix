@@ -1,4 +1,3 @@
-import cookieParser from 'cookie-parser';
 import express, { Application, urlencoded } from 'express';
 import cors from 'cors';
 import { TOKENS } from './media-utils/tokens.utils';
@@ -15,7 +14,6 @@ app.use(
     origin: TOKENS.allowedOrigins,
   })
 );
-app.use(cookieParser());
 app.use(requestLogger);
 
 app.use(TOKENS.routes.mediaBasePath, mediaRouter);

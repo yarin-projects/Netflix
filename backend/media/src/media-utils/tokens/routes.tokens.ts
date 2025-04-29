@@ -1,10 +1,11 @@
 export const routes = {
   default: '/',
   mediaBasePath: '/api/browse',
-  movies: '/allMovies',
-  series: '/allSeries',
+  getAllMovies: '/GetAllMovies',
+  GetAllTVs: '/GetAllTVs',
+  GetAllMedia: '/GetAllMedia',
   myList: '/mylist',
-  search: '/search',
-  getMovie: '/movie/:id',
-  getSeries: '/series/:id',
+  Search: '/Search',
+  GetMovieById: '/GetMovieById/:id',
+  GetTVById: '/GetTVById/:id',
 };

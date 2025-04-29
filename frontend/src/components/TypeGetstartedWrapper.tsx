@@ -1,5 +1,3 @@
-import React from "react";
-
 interface Props {
   type: "get-started";
   state: "default";
@@ -13,6 +11,7 @@ export const TypeGetstartedWrapper = ({
   className,
   divClassName,
 }: Props): JSX.Element => {
+
   return (
     <button
       className={`all-[unset] box-border flex w-52 h-14 items-center gap-4 px-6 py-3 relative bg-[#e50814] rounded ${className}`}
