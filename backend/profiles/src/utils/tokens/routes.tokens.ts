@@ -1,16 +1,25 @@
+const updateRoute = '/update';
+const favoritesRoute = '/favorites';
+const historyRoute = '/history';
+const deleteRoute = '/delete';
+const addRoute = '/add';
+
 export const routes = {
   default: '/',
   profilesBasePath: '/api/profiles',
   create: '/create',
-  updateName: '/update-name',
-  updateMaturity: '/update-maturity',
-  updateAvatar: '/update-avatar',
-  delete: '/delete',
+  updateName: `${updateRoute}-name`,
+  updateMaturity: `${updateRoute}-maturity`,
+  updateAvatar: `${updateRoute}-avatar`,
+  delete: deleteRoute,
   favorites: {
-    get: '/favorites',
-    add: '/add-favorite',
-    remove: '/remove-favorite',
+    get: favoritesRoute,
+    add: favoritesRoute + addRoute,
+    remove: favoritesRoute + deleteRoute,
   },
-  history: '/history',
+  history: {
+    get: historyRoute,
+    add: historyRoute + addRoute,
+  },
   me: '/me',
 };
