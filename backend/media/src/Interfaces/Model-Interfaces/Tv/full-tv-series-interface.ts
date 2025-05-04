@@ -1,4 +1,4 @@
-import { IProductionCompany } from "../OTHER/production-company"
+import { IProductionCompany } from "../Other/production-company"
 import { ITVEpisode } from "./tv-episode-interface"
 
 export interface IFullTVSeries {

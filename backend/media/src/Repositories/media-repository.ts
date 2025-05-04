@@ -18,7 +18,7 @@ export class MediaRepository implements IMediaRepository {
     full_movie = process.env.FULL_MOVIE;
     search = process.env.SEARCH;
 
-    async GetAllMovies(page?: number): Promise<IMovie[] | null> {
+    async GetAllMovies(): Promise<IMovie[] | null> {
         const response = await axios.get(`${this.movies}?api_key=${this.apikey}`);
         if (response) {
         return response.data.results;
@@ -26,7 +26,7 @@ export class MediaRepository implements IMediaRepository {
         else return null;
     }
 
-    async GetAllTVs(page?: number): Promise<ITVSeries[] | null> {
+    async GetAllTVs(): Promise<ITVSeries[] | null> {
         const response = await axios.get(`${this.tvs}?api_key=${this.apikey}`);
         if (response) {
         return response.data.results;
@@ -34,7 +34,7 @@ export class MediaRepository implements IMediaRepository {
         else return null;
     }
 
-    async GetAllMedia(page?: number): Promise<any> {
+    async GetAllMedia(): Promise<any> {
         const response = await axios.get(`${this.all}?api_key=${this.apikey}`);
         if (response) {
             const results = response.data.results;
