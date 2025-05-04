@@ -77,9 +77,9 @@ export class MediaController {
 
   async GetTVById(req: Request, res: Response) {
     try {
-      const tv = await this.mediaService.GetTVById(req.body.id); //idk about it
+      const tv = await this.mediaService.GetTVById(req.params.id);
       if (!tv) {
-        handleError(res, new Error(TOKENS.errors.movieNotFound));
+        handleError(res, new Error(TOKENS.errors.seriesNotFound));
         return;
       }
       res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.getTVById, data: tv });

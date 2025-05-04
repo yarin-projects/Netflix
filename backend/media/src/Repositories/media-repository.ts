@@ -1,10 +1,10 @@
 import {IMediaRepository} from '../Interfaces/media-repository-interface';
 import {config} from 'dotenv';
 import axios from 'axios';
-import { ITVSeries } from '../../../../Shared/Model-Interfaces/TV/tv-series-interface';
-import { IMovie } from '../../../../Shared/Model-Interfaces/MOVIE/movie-interface';
-import { IFullTVSeries } from '../../../../Shared/Model-Interfaces/TV/full-tv-series-interface';
-import { IFullMovie } from '../../../../Shared/Model-Interfaces/MOVIE/full-movie-interface';
+import { ITVSeries } from "../Interfaces/Model-Interfaces/Tv/tv-series-interface";
+import { IMovie } from '../Interfaces/Model-Interfaces/Movie/movie-interface';
+import { IFullTVSeries } from '../Interfaces/Model-Interfaces/Tv/full-tv-series-interface';
+import { IFullMovie } from '../Interfaces/Model-Interfaces/Movie/full-movie-interface';
 config();
 
 export class MediaRepository implements IMediaRepository {
