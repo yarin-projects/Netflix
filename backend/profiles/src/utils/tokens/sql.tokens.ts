@@ -18,4 +18,8 @@ export const sql = {
     ascending: 'ASC',
     descending: 'DESC',
   },
+  defaultProfileData: {
+    name: 'Profile',
+    avatarPath: '/01.png',
+  },
 };

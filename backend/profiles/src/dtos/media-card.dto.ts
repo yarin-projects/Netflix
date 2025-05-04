@@ -1,4 +1,4 @@
-import { MediaType } from 'express';
+import { MediaType } from "../enums/media-type.enum";
 
 export interface MediaCardDto {
   mediaId: number;

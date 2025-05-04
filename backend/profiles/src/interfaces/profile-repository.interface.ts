@@ -6,6 +6,7 @@ import { IProfile } from './profile.interface';
 
 export interface IProfileRepository {
   createDefaultProfile(userId: string, defaults: ProfileDefaults): Promise<IProfile>;
+  countProfilesByUserId(userId: string): Promise<number>;
   findProfileByUserId(userId: string): Promise<IProfile | null>;
   findOrCreateMedia(mediaData: IMedia): Promise<[IMedia, boolean]>;
   addFavorite(

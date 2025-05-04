@@ -22,33 +22,36 @@ export class ProfileRepository implements IProfileRepository {
     });
     return newProfile;
   }
-  findProfileByUserId(userId: string): Promise<IProfile | null> {
-    return Profile.findOne({ where: { userId } });
+  async countProfilesByUserId(userId: string): Promise<number> {
+    return await Profile.count({ where: { userId } });
   }
-  findOrCreateMedia(mediaData: IMedia): Promise<[IMedia, boolean]> {
+  async findProfileByUserId(userId: string): Promise<IProfile | null> {
+    return await Profile.findOne({ where: { userId } });
+  }
+  async findOrCreateMedia(mediaData: IMedia): Promise<[IMedia, boolean]> {
     const { mediaId, mediaType } = mediaData;
-    return Media.findOrCreate({
+    return await Media.findOrCreate({
       where: { mediaId: mediaId, mediaType: mediaType },
       defaults: { ...mediaData },
     });
   }
-  addFavorite(
+  async addFavorite(
     profileId: string,
     mediaId: number,
     mediaType: MediaType
   ): Promise<[ProfileFavorite, boolean]> {
-    return ProfileFavorite.findOrCreate({
+    return await ProfileFavorite.findOrCreate({
       where: { profileId, mediaId, mediaType },
       defaults: { profileId, mediaId, mediaType },
     });
   }
-  removeFavorite(profileId: string, mediaId: number, mediaType: MediaType): Promise<number> {
-    return ProfileFavorite.destroy({
+  async removeFavorite(profileId: string, mediaId: number, mediaType: MediaType): Promise<number> {
+    return await ProfileFavorite.destroy({
       where: { profileId, mediaId, mediaType },
     });
   }
-  getProfileWithFavorites(profileId: string): Promise<IProfile | null> {
-    return Profile.findByPk(profileId, {
+  async getProfileWithFavorites(profileId: string): Promise<IProfile | null> {
+    return await Profile.findByPk(profileId, {
       include: [
         {
           model: Media,
