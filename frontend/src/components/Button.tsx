@@ -2,10 +2,10 @@ import React from "react";
 
 interface ButtonProps {
   onClick?: () => void;
-  type: "sign-up" | "sign-in" | "sign-out" | "forgot-password" | "reset-password";
+  type?: "sign-up" | "sign-in" | "sign-out" | "forgot-password" | "reset-password";
   children?: React.ReactNode;
-  size: "large" | "small";
-  state: "default";
+  size?: "large" | "small";
+  state?: "default";
   className?: any;
   divClassName?: any;
 }

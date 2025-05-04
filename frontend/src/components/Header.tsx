@@ -2,6 +2,7 @@ import { strings } from "../strings/strings";
 import { Button } from "./Button";
 import { Logo } from "./Logo";
 import { SmallAvatar } from "./SmallAvatar";
+import { FaBell, FaSearch } from 'react-icons/fa';
 
 interface HeaderProps {//check the Headers folder I divided the headers into 2 types
   type: "home-page" | "landing-page"; 
@@ -15,10 +16,8 @@ interface HeaderProps {//check the Headers folder I divided the headers into 2 t
 export const Header = ({ type }: HeaderProps): JSX.Element => {
   return (
     <div
-      className={`flex justify-between relative ${type === "home-page" ? "w-[1440px]" : "w-[1200px]"}
-       ${type === "home-page" ? "items-center" : "items-start"}
-        ${type === "home-page" ? "px-[58px] py-0" : "pt-6 pb-7 px-12"}
-         ${type === "home-page" ? "h-[68px]" : "h-[92px]"}`}>
+      className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-14 
+        ${type === "home-page" ? "h-[68px] bg-gradient-to-b from-black/75 to-transparent" : "h-[92px]"}`}>
           
       {type === "landing-page" && (
         <Logo className="!bg-[unset]" size="medium" type="word" />)}
@@ -30,7 +29,7 @@ export const Header = ({ type }: HeaderProps): JSX.Element => {
               <div className="inline-flex items-center justify-end gap-2 relative flex-[0_0_auto] mt-[-2.00px] mb-[-2.00px]">
                 <img className="relative w-4 h-4" alt="Translator icon" />
 
-                <div className="relative w-fit mt-[-1.00px] font-medium-body font-[number:var(--medium-body-font-weight)] text-white text-[length:var(--medium-body-font-size)] tracking-[var(--medium-body-letter-spacing)] leading-[var(--medium-body-line-height)] whitespace-nowrap [font-style:var(--medium-body-font-style)]">
+                <div className="relative w-fit mt-[-1.00px] font-medium text-white text-sm tracking-[0] leading-[17px] whitespace-nowrap">
                   English
                 </div>
               </div>
@@ -46,40 +45,42 @@ export const Header = ({ type }: HeaderProps): JSX.Element => {
           <>
             <Logo className="!bg-[unset]" size="small" type="word" />
             <div className="inline-flex items-start gap-5 relative flex-[0_0_auto]">
-              <div className="relative w-fit mt-[-1.00px] [font-family:'Netflix_Sans-Medium',Helvetica] font-medium text-white text-sm tracking-[0] leading-[17px] whitespace-nowrap">
+              <a href="#" className="text-white hover:text-white/80 text-sm font-medium">
                 Home
-              </div>
+              </a>
 
-              <div className="relative w-fit mt-[-1.00px] font-regular-smallbody font-[number:var(--regular-smallbody-font-weight)] text-greygrey-10 text-[length:var(--regular-smallbody-font-size)] tracking-[var(--regular-smallbody-letter-spacing)] leading-[var(--regular-smallbody-line-height)] whitespace-nowrap [font-style:var(--regular-smallbody-font-style)]">
+              <a href="#" className="text-[#e5e5e5] hover:text-white/80 text-sm">
                 TV Shows
-              </div>
+              </a>
 
-              <div className="relative w-fit mt-[-1.00px] font-regular-smallbody font-[number:var(--regular-smallbody-font-weight)] text-greygrey-10 text-[length:var(--regular-smallbody-font-size)] tracking-[var(--regular-smallbody-letter-spacing)] leading-[var(--regular-smallbody-line-height)] whitespace-nowrap [font-style:var(--regular-smallbody-font-style)]">
+              <a href="#" className="text-[#e5e5e5] hover:text-white/80 text-sm">
                 Movies
-              </div>
+              </a>
 
-              <div className="relative w-fit mt-[-1.00px] font-regular-smallbody font-[number:var(--regular-smallbody-font-weight)] text-greygrey-10 text-[length:var(--regular-smallbody-font-size)] tracking-[var(--regular-smallbody-letter-spacing)] leading-[var(--regular-smallbody-line-height)] whitespace-nowrap [font-style:var(--regular-smallbody-font-style)]">
+              <a href="#" className="text-[#e5e5e5] hover:text-white/80 text-sm">
                 New &amp; Popular
-              </div>
+              </a>
 
-              <div className="relative w-fit mt-[-1.00px] font-regular-smallbody font-[number:var(--regular-smallbody-font-weight)] text-greygrey-10 text-[length:var(--regular-smallbody-font-size)] tracking-[var(--regular-smallbody-letter-spacing)] leading-[var(--regular-smallbody-line-height)] whitespace-nowrap [font-style:var(--regular-smallbody-font-style)]">
+              <a href="#" className="text-[#e5e5e5] hover:text-white/80 text-sm">
                 My List
-              </div>
+              </a>
 
-              <div className="relative w-fit mt-[-1.00px] font-regular-smallbody font-[number:var(--regular-smallbody-font-weight)] text-greygrey-10 text-[length:var(--regular-smallbody-font-size)] tracking-[var(--regular-smallbody-letter-spacing)] leading-[var(--regular-smallbody-line-height)] whitespace-nowrap [font-style:var(--regular-smallbody-font-style)]">
+              <a href="#" className="text-[#e5e5e5] hover:text-white/80 text-sm">
                 Browse by Languages
-              </div>
+              </a>
             </div>
           </>
         )}
       </div>
 
       {type === "home-page" && (
-        <div className="inline-flex items-center gap-[15px] relative flex-[0_0_auto]">
-          <img className="relative w-9 h-8" alt="Icon medium search" />
-
-          <img className="relative w-9 h-8" alt="Icon medium" />
-
+        <div className="flex items-center gap-6">
+          <div className="w-5 h-5 text-white cursor-pointer hover:text-white/80">
+            <FaSearch />
+          </div>
+          <div className="w-5 h-5 text-white cursor-pointer hover:text-white/80">
+            <FaBell />
+          </div>
           <SmallAvatar size="small" type="user-profile-menu" />
         </div>
       )}
