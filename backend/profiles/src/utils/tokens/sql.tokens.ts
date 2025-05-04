@@ -11,4 +11,11 @@ export const sql = {
     profile: 'Profile',
     media: 'Media',
   },
+  attributes: {
+    favoriteMedia: 'favoriteMedia',
+    mediaAttributes: ['mediaId', 'mediaType', 'title', 'posterPath', 'releaseYear', 'voteAverage'],
+    createdAt: 'createdAt',
+    ascending: 'ASC',
+    descending: 'DESC',
+  },
 };

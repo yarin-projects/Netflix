@@ -7,5 +7,5 @@ export interface IProfile {
   name: string;
   avatarPath: string;
   isAdult: boolean;
-  favoriteMedia: IMedia[];
+  favoriteMedia?: IMedia[];
 }
