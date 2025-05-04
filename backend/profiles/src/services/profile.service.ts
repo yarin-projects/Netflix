@@ -6,6 +6,7 @@ import { TOKENS } from '../utils/tokens.utils';
 import { IProfileRepository } from '../interfaces/profile-repository.interface';
 import { logger } from '../configs/logger.config';
 import { IMedia } from '../interfaces/media.interface';
+import { MediaType } from '../enums/media-type.enum';
 
 @injectable()
 export class ProfileService implements IProfileService {
@@ -50,17 +51,17 @@ export class ProfileService implements IProfileService {
   async removeFavorite(
     profileId: string,
     userId: string,
-    favoriteData: MediaCardDto
+    mediaId: number,
+    mediaType: MediaType
   ): Promise<boolean> {
     await this.checkProfileOwnership(profileId, userId);
 
-    const { mediaId, mediaType } = favoriteData;
     const deletedCount = await this.profileRepository.removeFavorite(profileId, mediaId, mediaType);
 
     return deletedCount > 0;
   }
   async getFavorites(profileId: string, userId: string): Promise<MediaCardDto[]> {
-    await this.checkProfileOwnership(profileId, userId); // Authorization check
+    await this.checkProfileOwnership(profileId, userId);
     const profileWithFavorites = await this.profileRepository.getProfileWithFavorites(profileId);
 
     if (!profileWithFavorites || !profileWithFavorites.favoriteMedia) {

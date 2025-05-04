@@ -1,4 +1,4 @@
-import { MediaType } from "../enums/media-type.enum";
+import { MediaType } from '../enums/media-type.enum';
 
 export interface MediaCardDto {
   mediaId: number;
@@ -7,4 +7,5 @@ export interface MediaCardDto {
   posterPath?: string | null;
   releaseYear?: number | null;
   voteAverage?: number | null;
+  favoritedAt?: Date | null;
 }

@@ -5,4 +5,7 @@ export const errors = {
   internalServerError,
   profileNotFound: 'Profile not found for user: ',
   invalidProfile: 'Forbidden: Invalid Profile',
+  internalRouteSecretMissing: 'INTERNAL_ROUTE_SECRET is not defined',
+  internalRouteSecretInvalid: 'Provided INTERNAL_ROUTE_SECRET is invalid',
+  favoriteNotFound: 'Favorite not found',
 };
