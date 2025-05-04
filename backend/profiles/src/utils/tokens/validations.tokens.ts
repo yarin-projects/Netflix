@@ -1,3 +1,5 @@
+import 'dotenv/config';
+
 const { INTERNAL_ROUTE_SECRET } = process.env;
 const secretLength = INTERNAL_ROUTE_SECRET!.length;
 
