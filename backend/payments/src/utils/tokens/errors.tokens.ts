@@ -6,4 +6,6 @@ export const errors = {
   invalidSubscription: 'Invalid Subscription',
   orderNotFound: 'Order not found',
   invalidInternalSecret: 'Provided INTERNAL_ROUTE_SECRET is invalid',
+  internalRouteSecretMissing: 'INTERNAL_ROUTE_SECRET is required',
+  subscriptionsInternalUrlMissing: 'SUBSCRIPTIONS_INTERNAL_URL is required',
 };

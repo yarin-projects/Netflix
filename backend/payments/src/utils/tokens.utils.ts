@@ -9,6 +9,7 @@ import { routes } from './tokens/routes.tokens';
 import { sql } from './tokens/sql.tokens';
 import { tests } from './tokens/tests.tokens';
 import { validations } from './tokens/validations.tokens';
+import 'dotenv/config';
 
 const port = Number(process.env.PORT) || 3003;
 

@@ -1,15 +1,12 @@
 import { Sequelize } from 'sequelize-typescript';
 import { Transaction } from 'sequelize';
-import { Profile } from '../models/profile.model';
-import { Media } from '../models/media.model';
-import { ProfileFavorite } from '../models/profile-favorite.model';
-import { ProfileWatchHistory } from '../models/profile-watch-history.model';
+import { Payment } from '../models/payment.model';
 
 export const sequelizeTestInstance = new Sequelize({
   dialect: 'sqlite',
   storage: ':memory:',
   logging: false,
-  models: [Profile, Media, ProfileFavorite, ProfileWatchHistory],
+  models: [Payment],
 });
 
 beforeAll(async () => {
