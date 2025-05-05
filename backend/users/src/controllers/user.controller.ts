@@ -4,7 +4,12 @@ import { IUserService } from '../interfaces/user-service.interface';
 import { Request, Response } from 'express';
 import { handleError } from '../utils/error-handler.utils';
 import { AuthRequestDto } from '../dtos/auth-request.dto';
-import { clearCookies, setJwtCookies } from '../utils/cookies.utils';
+import axios from 'axios';
+
+const { INTERNAL_ROUTE_SECRET, AUTH_SERVICE_URL } = process.env;
+
+axios.defaults.baseURL = AUTH_SERVICE_URL;
+const internalSecret = INTERNAL_ROUTE_SECRET!;
 
 @injectable()
 export class UserController {
@@ -13,13 +18,22 @@ export class UserController {
     try {
       const data: AuthRequestDto = req.body;
 
-      const jwtTokens = await this.userService.signUp(data);
+      const user = await this.userService.signUp(data);
 
-      // setJwtCookies(res, jwtTokens);
+      const { userId, email } = user;
+      const ipAddress = req.ip;
+      const userAgent = req.headers['user-agent'] || 'unknown';
+
+      const payload = { userId, email, ipAddress, userAgent, secret: internalSecret };
+
+      const { accessToken, refreshToken }: any = await axios.post(
+        '/internal/auth/generate-tokens',
+        payload
+      );
 
       res
         .status(TOKENS.httpStatus.CREATED)
-        .json({ message: TOKENS.messages.userCreated, email: data.email });
+        .json({ message: TOKENS.messages.userCreated, accessToken, refreshToken });
     } catch (error) {
       handleError(res, error);
     }
@@ -29,20 +43,28 @@ export class UserController {
     try {
       const data: AuthRequestDto = req.body;
 
-      const jwtTokens = await this.userService.login(data);
+      const user = await this.userService.login(data);
 
-      // setJwtCookies(res, jwtTokens);
+      const { userId, email } = user;
+      const ipAddress = req.ip;
+      const userAgent = req.headers['user-agent'] || 'unknown';
+
+      const payload = { userId, email, ipAddress, userAgent, secret: internalSecret };
+
+      const { accessToken, refreshToken }: any = await axios.post(
+        '/internal/auth/generate-tokens',
+        payload
+      );
 
       res
         .status(TOKENS.httpStatus.OK)
-        .json({ message: TOKENS.messages.loginSuccess, email: data.email });
+        .json({ message: TOKENS.messages.loginSuccess, accessToken, refreshToken });
     } catch (error) {
       handleError(res, error);
     }
   }
-  
+
   async logout(req: Request, res: Response) {
-    clearCookies(res);
     res.status(TOKENS.httpStatus.OK).json({ message: TOKENS.messages.logoutSuccess });
   }
 }
