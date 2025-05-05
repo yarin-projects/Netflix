@@ -5,4 +5,5 @@ export const errors = {
   internalServerError,
   subscriptionNotFound: 'Subscription not found for user: ',
   internalRouteSecretMissing: 'INTERNAL_ROUTE_SECRET is required',
+  internalRouteSecretInvalid: 'Provided INTERNAL_ROUTE_SECRET is invalid',
 };

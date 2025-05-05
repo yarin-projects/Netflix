@@ -1,33 +1,33 @@
-import { Request, Response } from 'express';
-import { inject, injectable } from 'inversify';
+import request from 'supertest';
+import { app } from '../../app';
 import { TOKENS } from '../../utils/tokens.utils';
-import { ISubscriptionService } from '../../interfaces/internal-subscription-service.interface';
-import { MySubscriptionRequestDto } from '../../dtos/my-subscription-request.dto';
-import { handleError } from '../../utils/error-handler.utils';
 
-@injectable()
-export class SubscriptionController {
-  constructor(
-    @inject(TOKENS.injections.iSubscriptionService)
-    private subscriptionService: ISubscriptionService
-  ) {}
+const testPaths = TOKENS.tests.routes;
+const testData = TOKENS.tests.data;
+const testSuites = TOKENS.tests.suites.subscriptionController;
 
-  async getMySubscription(req: Request, res: Response) {
-    try {
-      const { userId }: MySubscriptionRequestDto = req.body;
+describe(testSuites.title, () => {
+  describe(testSuites.getMySubscription.title, () => {
+    it(testSuites.getMySubscription.cases.successActive, async () => {
+      await request(app)
+        .post(testPaths.createSubscription)
+        .send(testData.valid.subscription.createSubscriptionRequest_Basic);
 
-      const subscriptionStatus = await this.subscriptionService.getMySubscriptionStatus(userId);
+      const response = await request(app)
+        .post(testPaths.getMySubscription)
+        .send(testData.valid.subscription.getMySubscriptionRequest);
 
-      if (!subscriptionStatus) {
-        return res.status(TOKENS.httpStatus.OK).json(TOKENS.messages.inactiveSubscription);
-      }
+      expect(response.status).toBe(TOKENS.httpStatus.OK);
+      expect(response.body.message).toBeDefined();
+      expect(response.body.subscription).toBeDefined();
+    });
+    it(testSuites.getMySubscription.cases.invalidBody, async () => {
+      const response = await request(app)
+        .post(testPaths.getMySubscription)
+        .send(testData.invalid.subscription.getMySubscription_InvalidUser);
 
-      res.status(TOKENS.httpStatus.OK).json({
-        message: TOKENS.messages.subscriptionFound,
-        subscription: subscriptionStatus,
-      });
-    } catch (error) {
-      handleError(res, error);
-    }
-  }
-}
+      expect(response.status).toBe(TOKENS.httpStatus.BAD_REQUEST);
+      expect(response.body.error).toBeDefined();
+    });
+  });
+});
