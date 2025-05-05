@@ -8,6 +8,7 @@ import { messages } from './tokens/messages.tokens';
 import { routes } from './tokens/routes.tokens';
 import { sql } from './tokens/sql.tokens';
 import { tests } from './tokens/tests.tokens';
+import { validations } from './tokens/validations.tokens';
 
 const port = Number(process.env.PORT) || 3003;
 
@@ -24,4 +25,5 @@ export const TOKENS = Object.freeze({
   tests,
   errors,
   messages,
+  validations,
 });
