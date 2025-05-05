@@ -30,7 +30,6 @@ export class ProfileService implements IProfileService {
   }
   async addFavorite(profileId: string, userId: string, favoriteData: IMedia): Promise<boolean> {
     await this.checkProfileOwnership(profileId, userId);
-
     const { mediaId, mediaType } = favoriteData;
 
     const [mediaRecord, wasMediaCreated] = await this.profileRepository.findOrCreateMedia(

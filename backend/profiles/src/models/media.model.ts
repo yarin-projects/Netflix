@@ -27,9 +27,9 @@ export class Media extends Model {
 
   @Column({
     type: DataType.STRING,
-    allowNull: false,
+    allowNull: true,
   })
-  title!: string;
+  title?: string;
 
   @Column({
     type: DataType.STRING,

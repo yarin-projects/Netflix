@@ -32,14 +32,46 @@ export const validations = {
   },
   title: {
     required: 'Media title ' + required,
+    min: {
+      value: 1,
+      message: 'Invalid media title',
+    },
+    max: {
+      value: 255,
+      message: 'Invalid media title',
+    },
   },
   posterPath: {
     required: 'Media poster path ' + required,
+    min: {
+      value: 3,
+      message: 'Invalid media poster path',
+    },
+    max: {
+      value: 255,
+      message: 'Invalid media poster path',
+    },
   },
   releaseYear: {
     required: 'Media release year ' + required,
+    min: {
+      value: 1800,
+      message: 'Invalid media release year',
+    },
+    max: {
+      value: 2040,
+      message: 'Invalid media release year',
+    },
   },
   voteAverage: {
     required: 'Media vote average ' + required,
+    min: {
+      value: 0,
+      message: 'Invalid media vote average',
+    },
+    max: {
+      value: 10,
+      message: 'Invalid media vote average',
+    },
   },
 };

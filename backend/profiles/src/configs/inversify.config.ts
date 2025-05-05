@@ -21,6 +21,6 @@ container
   .bind<IInternalProfileService>(TOKENS.injections.iInternalProfileService)
   .to(InternalProfileService);
 
-container.bind<IProfileRepository>(TOKENS.injections.iProfileService).to(ProfileRepository);
+container.bind<IProfileRepository>(TOKENS.injections.iProfileRepository).to(ProfileRepository);
 
 export { container };

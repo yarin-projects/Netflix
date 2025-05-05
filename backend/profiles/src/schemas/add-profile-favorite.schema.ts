@@ -11,8 +11,20 @@ export const addProfileFavoriteSchema = z.object({
     .uuid(TOKENS.validations.profileId.message),
   mediaId: z.number({ required_error: TOKENS.validations.mediaId.required }),
   mediaType: z.nativeEnum(MediaType, { required_error: TOKENS.validations.mediaType.required }),
-  title: z.string({ required_error: TOKENS.validations.title.required }),
-  posterPath: z.string({ required_error: TOKENS.validations.posterPath.required }),
-  releaseYear: z.number({ required_error: TOKENS.validations.releaseYear.required }),
-  voteAverage: z.number({ required_error: TOKENS.validations.voteAverage.required }),
+  title: z
+    .string({ required_error: TOKENS.validations.title.required })
+    .min(TOKENS.validations.title.min.value, TOKENS.validations.title.min.message)
+    .max(TOKENS.validations.title.max.value, TOKENS.validations.title.max.message),
+  posterPath: z
+    .string({ required_error: TOKENS.validations.posterPath.required })
+    .min(TOKENS.validations.posterPath.min.value, TOKENS.validations.posterPath.min.message)
+    .max(TOKENS.validations.posterPath.max.value, TOKENS.validations.posterPath.max.message),
+  releaseYear: z
+    .number({ required_error: TOKENS.validations.releaseYear.required })
+    .min(TOKENS.validations.releaseYear.min.value, TOKENS.validations.releaseYear.min.message)
+    .max(TOKENS.validations.releaseYear.max.value, TOKENS.validations.releaseYear.max.message),
+  voteAverage: z
+    .number({ required_error: TOKENS.validations.voteAverage.required })
+    .min(TOKENS.validations.voteAverage.min.value, TOKENS.validations.voteAverage.min.message)
+    .max(TOKENS.validations.voteAverage.max.value, TOKENS.validations.voteAverage.max.message),
 });
