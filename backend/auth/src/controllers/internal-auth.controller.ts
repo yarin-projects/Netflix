@@ -26,7 +26,7 @@ export class InternalAuthController {
 
       const tokens = await this.internalAuthService.generateTokens(tokenMetaData, payload);
 
-      res.status(TOKENS.httpStatus.OK).json(tokens);
+      res.status(TOKENS.httpStatus.OK).json({ ...tokens });
     } catch (error) {
       handleError(res, error);
     }
