@@ -1,10 +1,10 @@
 import {IMediaRepository} from '../Interfaces/media-repository-interface';
 import {config} from 'dotenv';
 import axios from 'axios';
-import { ITVSeries } from '../../../../Shared/Model-Interfaces/TV/tv-series-interface';
-import { IMovie } from '../../../../Shared/Model-Interfaces/MOVIE/movie-interface';
-import { IFullTVSeries } from '../../../../Shared/Model-Interfaces/TV/full-tv-series-interface';
-import { IFullMovie } from '../../../../Shared/Model-Interfaces/MOVIE/full-movie-interface';
+import { ITVSeries } from "../Interfaces/Model-Interfaces/Tv/tv-series-interface";
+import { IMovie } from '../Interfaces/Model-Interfaces/Movie/movie-interface';
+import { IFullTVSeries } from '../Interfaces/Model-Interfaces/Tv/full-tv-series-interface';
+import { IFullMovie } from '../Interfaces/Model-Interfaces/Movie/full-movie-interface';
 config();
 
 export class MediaRepository implements IMediaRepository {
@@ -18,7 +18,7 @@ export class MediaRepository implements IMediaRepository {
     full_movie = process.env.FULL_MOVIE;
     search = process.env.SEARCH;
 
-    async GetAllMovies(page?: number): Promise<IMovie[] | null> {
+    async GetAllMovies(): Promise<IMovie[] | null> {
         const response = await axios.get(`${this.movies}?api_key=${this.apikey}`);
         if (response) {
         return response.data.results;
@@ -26,7 +26,7 @@ export class MediaRepository implements IMediaRepository {
         else return null;
     }
 
-    async GetAllTVs(page?: number): Promise<ITVSeries[] | null> {
+    async GetAllTVs(): Promise<ITVSeries[] | null> {
         const response = await axios.get(`${this.tvs}?api_key=${this.apikey}`);
         if (response) {
         return response.data.results;
@@ -34,7 +34,7 @@ export class MediaRepository implements IMediaRepository {
         else return null;
     }
 
-    async GetAllMedia(page?: number): Promise<any> {
+    async GetAllMedia(): Promise<any> {
         const response = await axios.get(`${this.all}?api_key=${this.apikey}`);
         if (response) {
             const results = response.data.results;

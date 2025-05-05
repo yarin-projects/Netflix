@@ -1,0 +1,37 @@
+import { IProductionCompany } from "../Other/production-company"
+import { ITVEpisode } from "./tv-episode-interface"
+
+export interface IFullTVSeries {
+  adult: boolean,
+  backdrop_path: string,
+  created_by: object,
+  episode_run_time: number[],
+  first_air_date: string,
+  genres: object[],
+  homepage: string,
+  id: 7,
+  in_production: false,
+  languages: string[],
+  last_air_date: string,
+  last_episode_to_air: ITVEpisode,
+  name: string,
+  next_episode_to_air: ITVEpisode | null,
+  networks: object[],
+  number_of_episodes: 40,
+  number_of_seasons: 4,
+  origin_country: string[],
+  original_language: string,
+  original_name: string,
+  overview: string,
+  popularity: number,
+  poster_path: string,
+  production_companies: IProductionCompany[],
+  production_countries: object[],
+  seasons: ITVEpisode[],
+  spoken_languages: object[],
+  status: string,
+  tagline: string,
+  type: string,
+  vote_average: number,
+  vote_count: number
+}

@@ -5,7 +5,7 @@ const api = axios.create({
     baseURL: apiBaseUrl,
     timeout: 1000 * 60,
     withCredentials: true
-});
+})
 
 export interface BaseApiResponse {
   message: string;
