@@ -20,6 +20,7 @@ export class Subscription extends Model {
   @Column({
     type: DataType.CHAR(36),
     allowNull: false,
+    unique: true,
   })
   userId!: string;
 
