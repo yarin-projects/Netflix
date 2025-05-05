@@ -26,11 +26,8 @@ export class PaypalService implements IPaypalService {
     @inject(TOKENS.injections.iPaymentRepository) private paymentRepository: IPaymentRepository
   ) {}
 
-  async createOrder(
-    userId: string,
-    orderData: CreateOrderRequestDto
-  ): Promise<CreateOrderResponseDto> {
-    const { subscriptionPlan } = orderData;
+  async createOrder(orderData: CreateOrderRequestDto): Promise<CreateOrderResponseDto> {
+    const { subscriptionPlan, userId } = orderData;
 
     if (!PLAN_PRICES[subscriptionPlan]) {
       throw new Error(TOKENS.errors.invalidSubscription + subscriptionPlan);
@@ -49,11 +46,8 @@ export class PaypalService implements IPaypalService {
 
     return { orderId };
   }
-  async captureOrder(
-    userId: string,
-    captureData: CaptureOrderRequestDto
-  ): Promise<CaptureOrderResponseDto> {
-    const { orderId } = captureData;
+  async captureOrder(captureData: CaptureOrderRequestDto): Promise<CaptureOrderResponseDto> {
+    const { orderId, userId } = captureData;
 
     const order = pendingOrders.find(order => order.orderId === orderId);
     if (!order) {
